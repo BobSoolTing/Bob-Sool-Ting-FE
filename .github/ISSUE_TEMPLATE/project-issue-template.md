@@ -1,8 +1,8 @@
 ---
-name: Issue Template
+name: Project Issue Template
 about: Issue Template
-title: "[Start] 기능명을 작성해주세요"
-labels: "\U0001F389Start"
+title: "[\U0001F31F Feat] 구현 예정인 기능명을 작성해주세요"
+labels: "\U0001F31F Feat"
 assignees: ''
 
 ---
