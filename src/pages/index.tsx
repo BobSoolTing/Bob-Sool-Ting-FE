@@ -1,8 +1,10 @@
+import BottomBar from '@/components/shared/BottomBar';
 import Link from 'next/link';
+import { ReactNode } from 'react';
 
 export default function Home() {
   return (
-    <div className='container mx-auto p-6 space-y-6'>
+    <div className='container mx-auto space-y-6'>
       {/* Search Section */}
       <div className='text-xl font-semibold text-gray-700'>검색창</div>
 
@@ -49,3 +51,7 @@ export default function Home() {
     </div>
   );
 }
+
+Home.getLayout = (page: ReactNode) => {
+  return <BottomBar>{page}</BottomBar>;
+};
