@@ -21,19 +21,19 @@ export default function BottomBar({
                 <Link href={'/search'}>
                     <button className={`flex flex-col items-center ${getActiveClass('/search')}`}>
                         <SearchIcon className="fill-current" />
-                        <span className="text-xs">검색</span>
+                        <span className="text-xs font-pretendard font-bold">검색</span>
                     </button>
                 </Link>
                 <Link href={'/bst'}>
                     <button className={`flex flex-col items-center ${getActiveClass('/bst')}`}>
                         <BobSoolTingIcon className="fill-current" />
-                        <span className="text-xs">밥술팅</span>
+                        <span className="text-xs font-pretendard font-bold">밥술팅</span>
                     </button>
                 </Link>
                 <Link href={'/my-page'}>
                     <button className={`flex flex-col items-center ${getActiveClass('/my-page')}`}>
                         <MypageIcon className="fill-current" />
-                        <span className="text-xs">프로필</span>
+                        <span className="text-xs font-pretendard font-bold">프로필</span>
                     </button>
                 </Link>
             </div>
