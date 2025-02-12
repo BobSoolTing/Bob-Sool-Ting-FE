@@ -24,8 +24,8 @@ export default function BottomBar({ children }: BottomBarProps) {
                         <span className="text-xs font-pretendard font-bold">검색</span>
                     </button>
                 </Link>
-                <Link href={'/bst'}>
-                    <button className={`flex flex-col items-center ${getActiveClass('/bst')}`}>
+                <Link href={'/bst/Bob'}>
+                    <button className={`flex flex-col items-center ${getActiveClass('/bst/Bob')}`}>
                         <BobSoolTingIcon className="fill-current" />
                         <span className="text-xs font-pretendard font-bold">밥술팅</span>
                     </button>
