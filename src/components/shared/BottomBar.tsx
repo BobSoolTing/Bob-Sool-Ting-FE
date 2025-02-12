@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { SearchIcon, BobSoolTingIcon, MypageIcon } from '@/assets/icons/SvgIcon';
 
-export default function BottomBar({
-    children,
-}: {
-    children: ReactNode
-}) {
+interface BottomBarProps {
+    children?: ReactNode;
+}
+
+export default function BottomBar({ children }: BottomBarProps) {
     const router = useRouter();
     const { pathname } = router;
 
