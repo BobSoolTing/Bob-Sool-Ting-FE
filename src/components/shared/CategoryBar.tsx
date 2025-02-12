@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import React, { ReactNode } from 'react';
 
 const menuItems = [
-    { href: '/bst/Bob', label: '밥약' },
-    { href: '/bst/Sool', label: '술약' },
-    { href: '/bst/Ting', label: '과팅' },
+    { href: '/bst/bob', label: '밥약' },
+    { href: '/bst/sool', label: '술약' },
+    { href: '/bst/ting', label: '과팅' },
 ];
 
 interface CategoryProps {
@@ -21,8 +21,8 @@ export default function CategoryBar({ children }: CategoryProps) {
     };
 
     const getActiveLinePosition = () => {
-        if (pathname.startsWith('/bst/Sool')) return 'left-[50%] -translate-x-[50%]';
-        if (pathname.startsWith('/bst/Ting')) return 'left-[294px]';
+        if (pathname.startsWith('/bst/sool')) return 'left-[50%] -translate-x-[50%]';
+        if (pathname.startsWith('/bst/ting')) return 'left-[294px]';
         return 'left-[38px]';
     };
 
