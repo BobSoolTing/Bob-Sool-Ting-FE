@@ -38,3 +38,11 @@ export function CloseIcon({ onClick }: { onClick: () => void }) {
     </svg>
   );
 }
+
+export const WritingIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
+      <path d='M14.1027 7.73371L1.37481 7.73371M7.73877 1.13405L7.73877 14.3334' stroke='white' stroke-width={2} stroke-linecap='round' />
+    </svg>
+  );
+};
