@@ -21,6 +21,7 @@ export const MypageIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+
 // 상세페이지 - 장소 아이콘
 export const PlaceIcon = ({ className }: { className?: string }) => (
   <svg className={className} width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
@@ -52,3 +53,22 @@ export const PersonnelIcon = ({ className }: { className?: string }) => (
     />
   </svg>
 );
+
+// 상단헤더 - X 아이콘
+export function CloseIcon({ onClick }: { onClick: () => void }) {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      className='w-6 h-6 absolute left-6 top-[50%] transform -translate-y-[50%] cursor-pointer'
+      preserveAspectRatio='none'
+      onClick={onClick}
+    >
+      <path d='M6 18L18 6M6 6L18 18' stroke='black' strokeWidth={2} strokeLinecap='round' />
+    </svg>
+  );
+}
+
