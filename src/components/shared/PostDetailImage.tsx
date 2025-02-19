@@ -43,7 +43,7 @@ export default function PostDetailImage() {
   return (
     <div className='w-full overflow-x-auto flex gap-2 px-4'>
       {images.map((src, index) => (
-        <img key={index} src={src} alt={`게시글 ${postId}의 이미지 ${index + 1}`} className='w-[100px] h-[100px] rounded-md object-cover' />
+        <img key={index} src={src} alt={`게시글 ${postId}의 이미지 ${index + 1}`} className='w-[100px] h-[100px] rounded-md object-cover mt-2 mb-4' />
       ))}
     </div>
   );
