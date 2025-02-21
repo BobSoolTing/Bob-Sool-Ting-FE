@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { DeleteButtonIcon, ProfileIcon, DeleteIcon } from '@/assets/icons/SvgIcon';
 import { IAlert } from '@/types/types';
 
