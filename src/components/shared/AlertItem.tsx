@@ -1,43 +1,69 @@
-import React, { useState } from 'react';
-import { ReactNode } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import { DeleteButtonIcon, ProfileIcon, DeleteIcon } from '@/assets/icons/SvgIcon';
+import { IAlert } from '@/types/types';
 
-interface AlertProps {
-  children: ReactNode;
+// 알림 아이템 props 타입 정의
+interface AlertItemProps {
+  alert: IAlert;
+  isSlide: boolean; // 삭제 영역 열림 및 닫힘
+  onDeleteOpen: () => void; // 삭제 영역 열기
+  onDelete: () => void; // 알림 삭제
 }
 
-export default function AlertItem({ children }: AlertProps) {
-  const [isSlide, setIsSlide] = useState(false); // 슬라이드 상태
+export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: AlertItemProps) {
+  if (!alert) return null; // alert가 undefined일 경우 아무 것도 렌더링하지 않음
 
-  const handleDeleteOpen = () => {
-    setIsSlide(!isSlide); // 클릭 시 슬라이드 상태 변경
+  // 알림 타입에 따라 처리
+  const handleAlertAction = () => {
+    // Apply 타입이면 모달을 열거나 다른 처리를 할 수 있습니다.
+    if (alert.type === 'Apply') {
+      openApplyModal(alert);
+      // Accept, Reject 타입이면 상세 페이지로 이동
+    } else if (alert.type === 'Accept') {
+      window.location.href = `/detail/${alert.postId}`;
+    } else if (alert.type === 'Reject') {
+      window.location.href = `/detail/${alert.postId}`;
+      // Like, Comment 타입이면 받은 페이지로 이동
+    } else {
+      window.location.href = `${alert.postId}`;
+    }
+  };
+
+  const openApplyModal = (alert: IAlert) => {
+    // 여기서 모달을 띄우는 로직을 작성할 수 있습니다.
+    console.log('Apply Modal Opened', alert);
   };
 
   return (
-    <div className='w-[412px] h-[106px] flex items-center justify-between bg-white border-b border-[#d9d9d9] px-4 relative overflow-hidden'>
-      {/* 슬라이드 될 영역 */}
+    <div
+      className='w-[412px] h-[106px] flex items-center justify-between bg-white border-b border-[#d9d9d9] px-4 relative overflow-hidden cursor-pointer'
+      onClick={handleAlertAction}
+    >
+      {/* 슬라이드될 영역 */}
       <div className={`flex items-center justify-between w-full transition-transform duration-300 ${isSlide ? 'transform translate-x-[-72px]' : ''}`}>
         {/* 프로필 아이콘 + 텍스트 컨테이너 */}
         <div className='flex items-center gap-3'>
           <ProfileIcon />
           <div className='flex w-[264px] min-h-[74px] flex-col gap-2'>
-            <p className='text-base font-bold text-[#1b1b1b]'>밥약 하실 후배님을 찾습니다.</p>
-            <p className='text-xs font-medium text-[#1b1b1b] flex-grow line-clamp-2'>내용을 작성하지 않았습니다</p>
-            <p className='text-[10px] font-medium text-[#767676]'>25. 04. 30</p>
+            <p className='text-base font-bold text-[#1b1b1b]'>{alert.postId}</p>
+            <p className='text-xs font-medium text-[#1b1b1b] flex-grow line-clamp-2'>{alert.content}</p>
+            <p className='text-[10px] font-medium text-[#767676]'>{alert.createdAt}</p>
           </div>
         </div>
 
-        {/* 삭제 영역 열기 */}
-        <div onClick={handleDeleteOpen} className='self-start'>
+        {/* 삭제 영역 열기 버튼 */}
+        <div onClick={onDeleteOpen} className='self-start cursor-pointer'>
           <DeleteButtonIcon />
         </div>
       </div>
 
       {/* 삭제 영역 */}
       <div
-        className={`absolute top-0 right-0 w-[72px] h-full bg-[#FF2A2A]/70 flex flex-col justify-center items-center gap-1 transition-all duration-300 ${
+        className={`absolute top-0 right-0 w-[72px] h-full bg-[#FF2A2A]/70 hover:bg-[#FF2A2A] flex flex-col justify-center items-center gap-1 transition-all duration-300 ${
           isSlide ? 'transform translate-x-0' : 'transform translate-x-[72px]'
         }`}
+        onClick={onDelete}
       >
         <DeleteIcon />
         <p className='text-xs font-bold text-white'>삭제</p>
