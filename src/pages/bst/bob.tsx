@@ -4,7 +4,6 @@ import BottomBar from '@/components/shared/BottomBar';
 import CategoryBar from '@/components/shared/CategoryBar';
 import Writing from '@/components/shared/Writing';
 import SearchBar from '@/components/shared/SearchBar';
-import PostItem from '@/components/shared/PostItem';
 
 export default function BobPage() {
   return;
@@ -20,7 +19,6 @@ BobPage.getLayout = (page: ReactNode) => {
           <Writing />
         </BottomBar>
       </CategoryBar>
-      <PostItem />
     </>
   );
 };
