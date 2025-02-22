@@ -32,12 +32,12 @@ const MOCK_DATA = {
 export const PostItem = ({ post = MOCK_DATA.post, user = MOCK_DATA.user }) => {
   // 모집 인원 계산
   const recruitmentStatus = useMemo(() => {
-    const isFull = (post?.participants?.length || 1) >= (post?.max_participants || 2);
+    const isFull = (post.participants.length || 1) >= (post.max_participants || 2);
     return {
       text: isFull ? '모집 완료' : '모집중',
       className: isFull ? 'bg-[#ccc]/60 text-[#999] w-[50px]' : 'bg-[#DBFCF5] text-[#3C9281] w-[38px]',
     };
-  }, [post?.participants?.length, post?.max_participants]);
+  }, [post.participants.length, post.max_participants]);
 
   // 학점 정보 계산
   const { grade, style: gradeStyle } = useMemo(() => {
