@@ -16,9 +16,9 @@ export default function Header({ children }: HeaderProps) {
           router.back();
         }}
       />
-      <p className='w-[132px] h-[30px] absolute left-[140px] top-[50%] transform -translate-y-[50%] text-2xl font-bold text-center text-[#1b1b1b]'>
+      <div className='w-[132px] h-[30px] absolute left-[140px] top-[50%] transform -translate-y-[50%] text-2xl font-bold text-center text-[#1b1b1b]'>
         {children}
-      </p>
+      </div>
     </div>
   );
 }
