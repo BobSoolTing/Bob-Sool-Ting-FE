@@ -13,7 +13,7 @@ interface AlertItemProps {
 export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: AlertItemProps) {
   if (!alert) return null; // alert가 undefined일 경우 아무 것도 렌더링하지 않음
 
-  // 알림 타입에 따라 처리
+  // 알림 타입에 따라 처리 ( 임시 적용이고 이후에 맞춰서 변경할 예정 )
   const handleAlertAction = () => {
     // Apply 타입이면 모달을 열거나 다른 처리를 할 수 있습니다.
     if (alert.type === 'Apply') {
@@ -29,6 +29,7 @@ export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: Al
     }
   };
 
+  // 모달도 이후에 수정 예정
   const openApplyModal = (alert: IAlert) => {
     // 여기서 모달을 띄우는 로직을 작성할 수 있습니다.
     console.log('Apply Modal Opened', alert);
@@ -41,7 +42,7 @@ export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: Al
     >
       {/* 슬라이드될 영역 */}
       <div className={`flex items-center justify-between w-full transition-transform duration-300 ${isSlide ? 'transform translate-x-[-72px]' : ''}`}>
-        {/* 프로필 아이콘 + 텍스트 컨테이너 */}
+        {/* 프로필 아이콘 + 텍스트 알림 아이템 */}
         <div className='flex items-center gap-3'>
           <ProfileIcon />
           <div className='flex w-[264px] min-h-[74px] flex-col gap-2'>
@@ -52,7 +53,13 @@ export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: Al
         </div>
 
         {/* 삭제 영역 열기 버튼 */}
-        <div onClick={onDeleteOpen} className='self-start cursor-pointer'>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            onDeleteOpen();
+          }}
+          className='self-start cursor-pointer'
+        >
           <DeleteButtonIcon />
         </div>
       </div>
@@ -62,7 +69,10 @@ export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: Al
         className={`absolute top-0 right-0 w-[72px] h-full bg-[#FF2A2A]/70 hover:bg-[#FF2A2A] flex flex-col justify-center items-center gap-1 transition-all duration-300 ${
           isSlide ? 'transform translate-x-0' : 'transform translate-x-[72px]'
         }`}
-        onClick={onDelete}
+        onClick={(e) => {
+          e.stopPropagation();
+          onDelete();
+        }}
       >
         <DeleteIcon />
         <p className='text-xs font-bold text-white'>삭제</p>
