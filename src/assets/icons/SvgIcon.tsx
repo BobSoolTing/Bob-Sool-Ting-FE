@@ -21,7 +21,6 @@ export const MypageIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-
 // 상세페이지 - 장소 아이콘
 export const PlaceIcon = ({ className }: { className?: string }) => (
   <svg className={className} width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
@@ -77,6 +76,30 @@ export const WritingIcon = ({ className }: { className?: string }) => {
   return (
     <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <path d='M14.1027 7.73371L1.37481 7.73371M7.73877 1.13405L7.73877 14.3334' stroke='white' stroke-width={2} stroke-linecap='round' />
+    </svg>
+  );
+};
+
+// 검색결과 아이템 - 시계 아이콘
+export const ClockIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' className={className} preserveAspectRatio='none'>
+      <path
+        d='M9.75 9.5L7.5 8.75V5.61391M13.5 8C13.5 4.68629 10.8137 2 7.5 2C4.18629 2 1.5 4.68629 1.5 8C1.5 11.3137 4.18629 14 7.5 14C9.72085 14 11.6599 12.7934 12.6973 11M11.854 7.34156L13.354 8.84156L14.854 7.34156'
+        stroke='#999999'
+        stroke-width={2}
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      />
+    </svg>
+  );
+};
+
+// 검색결과 아이템 - X 아이콘
+export const SearchCloseIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' className={className} preserveAspectRatio='none'>
+      <path d='M4 12L12 4M4 4L12 12' stroke='#999999' stroke-width={2} stroke-linecap='round' />
     </svg>
   );
 };
