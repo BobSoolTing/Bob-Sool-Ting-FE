@@ -20,7 +20,7 @@ const MOCK_DATA = {
   },
   user: {
     nickname: '맹구',
-    gender: '남자',
+    gender: 'MAN',
     department: '컴퓨터과학과',
     studentNumber: 23,
     birth: '1994-08-25',
@@ -32,7 +32,7 @@ const MOCK_DATA = {
 export const PostItem = ({ post = MOCK_DATA.post, user = MOCK_DATA.user }) => {
   // 모집 인원 계산
   const recruitmentStatus = useMemo(() => {
-    const isFull = (post.participants.length || 1) >= (post.max_participants || 2);
+    const isFull = post.participants.length >= post.max_participants;
     return {
       text: isFull ? '모집 완료' : '모집중',
       className: isFull ? 'bg-[#ccc]/60 text-[#999] w-[50px]' : 'bg-[#DBFCF5] text-[#3C9281] w-[38px]',
@@ -60,7 +60,7 @@ export const PostItem = ({ post = MOCK_DATA.post, user = MOCK_DATA.user }) => {
                     {grade}
                   </span>
                 </div>
-                {user.gender === '남자' ? <ManIcon className='w-2 h-2' /> : <WomanIcon className='w-2 h-2' />}
+                {user.gender === 'MAN' ? <ManIcon className='w-2 h-2' /> : <WomanIcon className='w-2 h-2' />}
                 <span className='text-xs font-medium text-[#999] ml-1'>{post.createdAt}</span>
               </div>
               <div className='flex gap-2 text-xs font-medium text-[#999]'>
