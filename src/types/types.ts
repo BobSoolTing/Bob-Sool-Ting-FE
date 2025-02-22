@@ -14,14 +14,14 @@ export interface IAlert {
   postId: string; // 해당 포스트 아이디
   content: string; // 알림 내용
   type: 'Apply' | 'Accept' | 'Reject' | 'Like' | 'Comment'; // 알림의 형태
-  cratedAt: string; // 생성 날짜
+  createdAt: string; // 생성 날짜
 }
 
 export interface ILike {
   _id: string; // 좋아요 아이디
   userId: string; // 유저 아이디
   postId: string; // 포스트 아이디
-  cratedAt: string; // 생성 날짜
+  createdAt: string; // 생성 날짜
 }
 
 export interface IComment {
@@ -30,7 +30,7 @@ export interface IComment {
   postId: string; // 포스트 아이디
   comment: string; // 댓글 내용
   child: string[]; // 대댓글 아이디
-  cratedAt: string; // 생성 날짜
+  createdAt: string; // 생성 날짜
   updatedAt: string; // 수정일
 }
 
@@ -38,7 +38,7 @@ export interface IView {
   _id: string; // 조회 아이디
   userId: string; // 유저 아이디
   postId: string; // 포스트 아이디
-  cratedAt: string; // 생성 날짜
+  createdAt: string; // 생성 날짜
 }
 
 export interface IReport {
