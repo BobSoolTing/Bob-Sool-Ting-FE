@@ -25,13 +25,12 @@ export interface ILike {
 }
 
 export interface IComment {
-  _id: string; // 좋아요 아이디
+  _id?: string; // 좋아요 아이디
   userId: string; // 유저 아이디
   postId: string; // 포스트 아이디
   comment: string; // 댓글 내용
-  child: string[]; // 대댓글 아이디
-  createdAt: string; // 생성 날짜
-  updatedAt: string; // 수정일
+  child?: string[]; // 대댓글 아이디
+  cratedAt: string; // 생성 날짜
 }
 
 export interface IView {
@@ -64,7 +63,7 @@ export interface IUser {
   password: string; // 비밀번호
   nickname: string; // 유저 닉네임
   phone: string; // 전화번호
-  gender: string; // 성별 : MAN or WOMEN
+  gender: string; // 성별 : MAN or WOMAN
   birth: string; // 출생 연월일
   university: string; // 학교
   department: string; // 학과
