@@ -19,13 +19,13 @@ const MOCK_DATA = {
     view: 678,
   },
   user: {
-    nickname: '김멋사',
+    nickname: '맹구',
     gender: '남자',
-    department: '컴퓨터공학과',
-    studentNumber: 24,
-    birth: '2001-08-25',
-    profileImage: 'profileImage',
-    rating: 40,
+    department: '컴퓨터과학과',
+    studentNumber: 23,
+    birth: '1994-08-25',
+    profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCWpbTjDc9z67eM9a7-ChVQHzkwRkPuXmXA&s',
+    rating: 50,
   },
 };
 
