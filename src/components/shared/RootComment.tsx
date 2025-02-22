@@ -2,7 +2,7 @@
 import { ManIcon, WomanIcon } from '@/assets/icons/SvgIcon';
 import React from 'react';
 import Image from 'next/image';
-import profileImage from '@/assets/images/profileImage.png';
+import profileImage from '@/assets/images/profileImage.png';
 import { getTimeAgo } from '@/utils/timeAgo';
 import { getRating } from '@/utils/ratingCalc';
 
