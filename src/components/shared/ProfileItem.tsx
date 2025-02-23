@@ -24,7 +24,7 @@ export default function ProfileItem() {
         <div className='w-[26px] h-3 flex items-center justify-center rounded-sm bg-[#00b0b9]/20'>
           <span className='text-[10px] font-medium text-[#767676]'>B0</span>
         </div>
-        {userData.gender === 'MAN' ? <ManIcon className='w-2 h-2' /> : userData.gender === 'WOMAN' ? <WomanIcon className='w-2 h-2' /> : null}
+        {userData.gender === 'MAN' ? <ManIcon className='w-2 h-2' /> : <WomanIcon className='w-2 h-2' />}
       </div>
 
       {/* 학과 및 추가 정보 */}
