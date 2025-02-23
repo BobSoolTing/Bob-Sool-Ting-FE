@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import profileImage from '@/assets/images/profileImage.png';
 import { ManIcon, WomanIcon, PlaceIcon, DateIcon, LikeIcon, CommentIcon, ViewIcon } from '@/assets/icons/SvgIcon';
 import { getRatingWithStyle } from '@/utils/ratingCalc';
 
@@ -19,12 +21,12 @@ const MOCK_DATA = {
     view: 678,
   },
   user: {
-    nickname: '맹구',
+    nickname: '짱구',
     gender: 'MAN',
     department: '컴퓨터과학과',
     studentNumber: 23,
     birth: '1994-08-25',
-    profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCWpbTjDc9z67eM9a7-ChVQHzkwRkPuXmXA&s',
+    profileImage: profileImage,
     rating: 50,
   },
 };
@@ -50,7 +52,7 @@ export const PostItem = ({ post = MOCK_DATA.post, user = MOCK_DATA.user }) => {
       <div>
         <div className='w-[412px] h-[178px] border-b border-[#d9d9d9] flex flex-col justify-between pt-2 pb-1 px-4'>
           <div className='flex items-center gap-2'>
-            <img className='w-[50px] h-[50px] rounded-full' src={user.profileImage} alt={user.nickname} />
+            <Image src={user.profileImage} height={50} width={50} alt={user.nickname} className='w-[50px] h-[50px] rounded-full' />
             <div className='flex flex-col'>
               <div className='flex items-center gap-1'>
                 <span className='text-base font-bold text-[#1b1b1b]'>{user.nickname}</span>
