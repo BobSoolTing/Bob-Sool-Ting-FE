@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ReactNode } from 'react';
-import BottomBar from '@/components/shared/BottomBar';
-import Header from '@/components/shared/Header';
+import BottomBar from '@/components/shared/bst/BottomBar';
+import Header from '@/components/shared/bst/Header';
 import AlertItem from '@/components/shared/AlertItem';
 import { IAlert } from '@/types/types';
 

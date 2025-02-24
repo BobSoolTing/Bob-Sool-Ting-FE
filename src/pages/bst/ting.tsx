@@ -1,9 +1,9 @@
 import React from 'react';
 import { ReactNode } from 'react';
-import BottomBar from '@/components/shared/BottomBar';
-import CategoryBar from '@/components/shared/CategoryBar';
-import Writing from '@/components/shared/Writing';
-import SearchBar from '@/components/shared/SearchBar';
+import BottomBar from '@/components/shared/bst/BottomBar';
+import CategoryBar from '@/components/shared/bst/CategoryBar';
+import Writing from '@/components/shared/bst/Writing';
+import SearchBar from '@/components/shared/search/SearchBar';
 
 export default function TingPage() {
   return;
