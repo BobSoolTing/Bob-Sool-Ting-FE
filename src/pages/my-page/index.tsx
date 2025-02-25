@@ -9,8 +9,8 @@ import {
   MyPostIcon,
   MatchingIcon,
   MeeTingIcon,
-  LikeIcon,
-  CommentIcon,
+  MyLikeIcon,
+  MyCommentIcon,
   AlertIcon,
   SupportIcon,
   FeedbackIcon,
@@ -40,8 +40,8 @@ export default function MyPage() {
     { icon: MyPostIcon, text: '내 모집글', href: '/my-page/history/mypost' },
     { icon: MatchingIcon, text: '매칭 완료', href: '/my-page/history/matching' },
     { icon: MeeTingIcon, text: '만남 기록', href: '/my-page/history/meeting' },
-    { icon: LikeIcon, text: '좋아요', href: '/my-page/history/like' },
-    { icon: CommentIcon, text: '댓글', href: '/my-page/history/comment' },
+    { icon: MyLikeIcon, text: '좋아요', href: '/my-page/history/like' },
+    { icon: MyCommentIcon, text: '댓글', href: '/my-page/history/comment' },
     { icon: AlertIcon, text: '알림', href: '/my-page/history/alert' },
   ];
 
