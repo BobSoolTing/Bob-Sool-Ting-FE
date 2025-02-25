@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function nickname() {
+export default function NicknamePage() {
   return <div>nickname</div>;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function comment() {
+export default function CommentPage() {
   return <div>comment</div>;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function matching() {
+export default function MatchingPage() {
   return <div>matching</div>;
 }

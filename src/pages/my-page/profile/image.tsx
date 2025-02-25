@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function image() {
+export default function ImagePage() {
   return <div>image</div>;
 }

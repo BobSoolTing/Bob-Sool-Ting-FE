@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function like() {
+export default function LikePage() {
   return <div>like</div>;
 }
