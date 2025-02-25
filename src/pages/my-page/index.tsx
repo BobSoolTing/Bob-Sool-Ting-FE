@@ -44,6 +44,13 @@ export default function MyPage() {
     { icon: CommentIcon, text: '댓글', href: '/my-page/history/comment' },
     { icon: AlertIcon, text: '알림', href: '/my-page/history/alert' },
   ];
+
+  const supportItems = [
+    { icon: SupportIcon, text: '고객 센터', href: '/my-page/support' },
+    { icon: FeedbackIcon, text: '의견 남기기', href: '/my-page/support' },
+    { icon: PolicyIcon, text: '약관 및 정책', href: '/my-page/support' },
+  ];
+
   return (
     <div className='flex flex-col relative bg-[#f6f8fa] min-h-screen'>
       {/* 헤더 */}
@@ -82,38 +89,14 @@ export default function MyPage() {
         </div>
       </div>
 
-      {/* 고객 지원 관련 */}
+      {/* 고객지원 관련 */}
       <div className='flex justify-center pt-4'>
         <div className='w-96 rounded-[18px] bg-white px-6 py-6'>
           <span className='text-2xl font-bold text-left text-[#767676]'>고객지원</span>
           <div className='flex flex-col gap-4 pt-6'>
-            <Link href={'/my-page/support'}>
-              <div className='flex justify-between text-lg text-left text-[#1b1b1b] items-center h-6'>
-                <div className='flex items-center gap-4'>
-                  <SupportIcon />
-                  <span>고객 센터</span>
-                </div>
-                <ChevronRightIcon />
-              </div>
-            </Link>
-            <Link href={'/my-page/support'}>
-              <div className='flex justify-between text-lg text-left text-[#1b1b1b] items-center h-6'>
-                <div className='flex items-center gap-4'>
-                  <FeedbackIcon />
-                  <span>의견 남기기</span>
-                </div>
-                <ChevronRightIcon />
-              </div>
-            </Link>
-            <Link href={'/my-page/support'}>
-              <div className='flex justify-between text-lg text-left text-[#1b1b1b] items-center h-6'>
-                <div className='flex items-center gap-4'>
-                  <PolicyIcon />
-                  <span>약관 및 정책</span>
-                </div>
-                <ChevronRightIcon />
-              </div>
-            </Link>
+            {supportItems.map((item, index) => (
+              <HistoryItem key={index} icon={item.icon} text={item.text} href={item.href} />
+            ))}
           </div>
         </div>
       </div>
