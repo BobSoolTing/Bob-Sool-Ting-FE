@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from '@/components/shared/bst/Header';
 import BottomBar from '@/components/shared/bst/BottomBar';
 import { PostItem } from '@/components/shared/post/PostItem';
+import EmptyState from '@/pages/my-page/history/EmptyState';
 
 interface Post {
   _id: string;
@@ -27,10 +28,7 @@ export default function LikePage() {
       {posts.length > 0 ? (
         posts.map((post) => <PostItem key={post._id} post={post} />)
       ) : (
-        <div className='flex flex-col items-center justify-center'>
-          <p className='text-xl font-bold text-[#767676]'>좋아요를 누른 모집글이 없습니다.</p>
-          <p className='text-sm text-[#999]'>작성된 모집글을 탐색하고 좋아요를 눌러보세요!</p>
-        </div>
+        <EmptyState title='좋아요를 누른 모집글이 없습니다.' message='마음에 드는 모집글을 찾아 좋아요를 눌러보세요!' />
       )}
     </div>
   );
