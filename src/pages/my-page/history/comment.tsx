@@ -29,7 +29,7 @@ export default function CommentPage() {
         {posts.length > 0 ? (
           posts.map((post) => <PostItem key={post._id} post={post} />)
         ) : (
-          <EmptyState title='탯글으 작성한 모집글이 없습니다.' message='마음에 드는 모집글을 찾아 댓글을 작성해 보세요!' />
+          <EmptyState title='댓글을 작성한 모집글이 없습니다.' message='마음에 드는 모집글을 찾아 댓글을 작성해 보세요!' />
         )}
       </div>
     </div>
