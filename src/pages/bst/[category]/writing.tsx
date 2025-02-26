@@ -3,12 +3,17 @@ import { useRouter } from 'next/router';
 import NotFoundPage from '@/pages/404';
 import { PlaceIcon, DateIcon, PersonnelIcon } from '@/assets/icons/SvgIcon';
 import BottomBar from '@/components/shared/bst/BottomBar';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
+import Button from '@/components/shared/Button';
+import Header from '@/components/shared/bst/Header';
+import BottomSheetPlace from '@/components/shared/post/BottomSheetPlace';
 
 // 허용된 카테고리 목록
 const ALLOWED_CATEGORIES = ['bob', 'sool', 'ting'];
 
 export default function WritePage() {
+  const [isComplete, setIsComplete] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const { category } = router.query;
 
@@ -18,11 +23,8 @@ export default function WritePage() {
   }
 
   return (
-    <div className='flex flex-col w-full h-screen bg-white pb-[56px]'>
-      {/* 헤더 */}
-      <div className='flex justify-center items-center w-full h-14 border-b border-[#eee]'>
-        <p className='text-2xl font-bold text-[#1b1b1b]'>{`게시글 작성`}</p>
-      </div>
+    <div className='relative flex flex-col w-full h-screen bg-white pb-[56px]'>
+      <Header>게시글 작성</Header>
 
       {/* 메인 콘텐츠 */}
       <div className='flex flex-col flex-1 px-6 pt-4 pb-6 overflow-auto'>
@@ -41,27 +43,36 @@ export default function WritePage() {
 
         {/* 추가 정보 입력 */}
         <div className='flex flex-col w-full space-y-4 mb-4'>
-          <div className='flex items-center h-5'>
+          <div
+            onClick={() => {
+              setIsOpen(true);
+            }}
+            className='flex items-center h-5 cursor-pointer'
+          >
             <PlaceIcon className='mr-2' />
             <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>만남 장소를 입력해 주세요</div>
           </div>
 
-          <div className='flex items-center h-5'>
+          <div onClick={() => {}} className='flex items-center h-5 cursor-pointer'>
             <DateIcon className='mr-2' />
             <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>약속 날짜를 선택해 주세요</div>
           </div>
 
-          <div className='flex items-center h-5'>
+          <div onClick={() => {}} className='flex items-center h-5 cursor-pointer'>
             <PersonnelIcon className='mr-2' />
             <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>인원 수를 선택해 주세요</div>
           </div>
         </div>
-
-        {/* 완료 버튼 */}
-        <div className='flex justify-center items-center w-full h-[50px] rounded-md bg-[#999] mt-4'>
-          <p className='text-lg font-semibold text-white'>완료</p>
-        </div>
       </div>
+      <Button isComplete={isComplete} className='mb-4'>
+        완료
+      </Button>
+      <BottomSheetPlace
+        isOpen={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      ></BottomSheetPlace>
     </div>
   );
 }
