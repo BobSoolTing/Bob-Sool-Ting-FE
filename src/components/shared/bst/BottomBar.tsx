@@ -33,7 +33,7 @@ export default function BottomBar({ children }: BottomBarProps) {
         <Link href={'/my-page'}>
           <button className={`flex flex-col items-center ${getActiveClass('/my-page')}`}>
             <MypageIcon className='fill-current' />
-            <span className='text-xs font-pretendard font-bold'>프로필</span>
+            <span className='text-xs font-pretendard font-bold'>마이</span>
           </button>
         </Link>
       </div>
