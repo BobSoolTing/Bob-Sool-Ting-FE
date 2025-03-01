@@ -12,11 +12,15 @@ const userData = {
   rating: 50,
 };
 
-export default function ProfileItem() {
+interface ProfileItemProps {
+  imageSize?: number; // 이미지 크기를 위한 props 추가
+}
+
+export default function ProfileItem({ imageSize = 120 }: ProfileItemProps) {
   return (
     <div className='flex flex-col items-center justify-center w-[412px] h-[174px] gap-1 '>
       {/* 프로필 이미지 */}
-      <Image src={profileImage} height={120} width={120} alt='프로필 이미지' className='w-[120px] h-[120px] rounded-full' />
+      <Image src={profileImage} height={imageSize} width={imageSize} alt='프로필 이미지' className='rounded-full' />
 
       {/* 이름 & 학점 */}
       <div className='flex items-center h-6 gap-2 mt-1'>

@@ -3,14 +3,14 @@ import { ReactNode } from 'react';
 import Header from '@/components/shared/bst/Header';
 import BottomBar from '@/components/shared/bst/BottomBar';
 
-export default function WritingPage() {
-  return <div>게시글 작성 페이지입니당</div>;
+export default function AlertPage() {
+  return <div>alert</div>;
 }
 
-WritingPage.getLayout = (page: ReactNode) => {
+AlertPage.getLayout = (page: ReactNode) => {
   return (
     <>
-      <Header>{'게시글 작성'}</Header>
+      <Header>{'알림'}</Header>
       <BottomBar>{page}</BottomBar>
     </>
   );
