@@ -14,10 +14,19 @@ import ContentInput from '@/components/shared/post/ContentInput';
 const ALLOWED_CATEGORIES = ['bob', 'sool', 'ting'];
 
 export default function WritePage() {
-  const { isComplete, activeSheet, openBottomSheet, closeBottomSheet, updateFormData } = usePostFormStore();
+  const { isComplete, activeSheet, openBottomSheet, closeBottomSheet, updateFormData, resetFormData } = usePostFormStore();
 
   const router = useRouter();
   const { category } = router.query;
+
+  const onClickButton = () => {
+    /** API 구현 완료 시 코드 추가 예정 */
+    /** API 구현 완료 시 코드 추가 예정 */
+    /** API 구현 완료 시 코드 추가 예정 */
+    alert('완료 되었습니다');
+    resetFormData();
+    router.back();
+  };
 
   // 유효하지 않은 카테고리인 경우 404 에러 표시
   if (router.isReady && category && !ALLOWED_CATEGORIES.includes(category as string)) {
@@ -33,7 +42,7 @@ export default function WritePage() {
         <ContentInput updateFormData={updateFormData} />
         <PostFormFields onFieldClick={openBottomSheet} />
       </div>
-      <Button isComplete={isComplete} className='mb-4'>
+      <Button onClick={onClickButton} isComplete={isComplete} className='mb-4'>
         완료
       </Button>
 
