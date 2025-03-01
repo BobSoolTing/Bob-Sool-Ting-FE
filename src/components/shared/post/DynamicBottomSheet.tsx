@@ -1,6 +1,6 @@
 // components/post/DynamicBottomSheet.tsx
 import React from 'react';
-import { BottomSheetType } from '@/hooks/usePostForm';
+import { BottomSheetType } from '@/stores/post-form';
 import BottomSheetPlace from '@/components/shared/post/BottomSheetPlace';
 import BottomSheetDate from '@/components/shared/post/BottomSheetDate';
 import BottomSheetPersonnel from '@/components/shared/post/BottomSheetPersonnel';
