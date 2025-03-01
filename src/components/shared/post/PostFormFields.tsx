@@ -1,35 +1,29 @@
-// components/post/PostFormFields.tsx
 import React from 'react';
 import { PlaceIcon, DateIcon, PersonnelIcon } from '@/assets/icons/SvgIcon';
-import { BottomSheetType } from '@/hooks/usePostForm';
+import { BottomSheetType, usePostFormStore } from '@/stores/post-form';
 
 interface PostFormFieldsProps {
   onFieldClick: (type: BottomSheetType) => void;
 }
 
-// 필드 항목 인터페이스 정의
-interface FieldItem {
-  type: BottomSheetType;
-  icon: React.ReactNode;
-  placeholder: string;
-}
-
 const PostFormFields: React.FC<PostFormFieldsProps> = ({ onFieldClick }) => {
-  // 필드 항목 정의
-  const fieldItems: FieldItem[] = [
-    { type: 'place', icon: <PlaceIcon className='mr-2' />, placeholder: '만남 장소를 입력해 주세요' },
-    { type: 'date', icon: <DateIcon className='mr-2' />, placeholder: '약속 날짜를 선택해 주세요' },
-    { type: 'personnel', icon: <PersonnelIcon className='mr-2' />, placeholder: '인원 수를 선택해 주세요' },
-  ];
-
+  const { formData } = usePostFormStore();
   return (
     <div className='flex flex-col w-full space-y-4 mb-4'>
-      {fieldItems.map((item) => (
-        <div key={item.type} onClick={() => onFieldClick(item.type)} className='flex items-center h-5 cursor-pointer'>
-          {item.icon}
-          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{item.placeholder}</div>
-        </div>
-      ))}
+      <div onClick={() => onFieldClick('place')} className='flex items-center h-5 cursor-pointer'>
+        <PlaceIcon className='mr-2' />
+        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.place}</div>
+      </div>
+
+      <div onClick={() => onFieldClick('date')} className='flex items-center h-5 cursor-pointer'>
+        <DateIcon className='mr-2' />
+        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.date}</div>
+      </div>
+
+      <div onClick={() => onFieldClick('personnel')} className='flex items-center h-5 cursor-pointer'>
+        <PersonnelIcon className='mr-2' />
+        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.personnel}</div>
+      </div>
     </div>
   );
 };

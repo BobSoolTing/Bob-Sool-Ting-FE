@@ -4,7 +4,7 @@ import BottomBar from '@/components/shared/bst/BottomBar';
 import { ReactNode } from 'react';
 import Button from '@/components/shared/Button';
 import Header from '@/components/shared/bst/Header';
-import { usePostForm } from '@/hooks/usePostForm';
+import { usePostFormStore } from '@/stores/post-form';
 import PostFormFields from '@/components/shared/post/PostFormFields';
 import DynamicBottomSheet from '@/components/shared/post/DynamicBottomSheet';
 import TitleInput from '@/components/shared/post/TitleInput';
@@ -14,7 +14,7 @@ import ContentInput from '@/components/shared/post/ContentInput';
 const ALLOWED_CATEGORIES = ['bob', 'sool', 'ting'];
 
 export default function WritePage() {
-  const { isComplete, activeSheet, openBottomSheet, closeBottomSheet, updateFormData } = usePostForm();
+  const { isComplete, activeSheet, openBottomSheet, closeBottomSheet, updateFormData } = usePostFormStore();
 
   const router = useRouter();
   const { category } = router.query;
