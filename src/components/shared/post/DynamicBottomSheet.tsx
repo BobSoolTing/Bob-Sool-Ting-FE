@@ -16,7 +16,7 @@ const DynamicBottomSheet: React.FC<DynamicBottomSheetProps> = ({ activeSheet, on
     case 'place':
       return <BottomSheetPlace isOpen={true} onClose={onClose} />;
     case 'date':
-      return <BottomSheetDate isOpen={true} onClose={onClose} />;
+      return <BottomSheetDate height={'380px'} className={'flex justify-center'} isOpen={true} onClose={onClose} />;
     case 'personnel':
       return <BottomSheetPersonnel isOpen={true} onClose={onClose} />;
     default:
