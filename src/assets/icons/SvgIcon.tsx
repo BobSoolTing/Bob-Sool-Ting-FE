@@ -302,3 +302,38 @@ export const ViewIcon = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+// 인원수 추가 아이콘
+export const AddIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg width={48} height={48} viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg' className={className} preserveAspectRatio='none'>
+      <circle cx={24} cy={24} r={24} fill='#EAF0FF' />
+      <g clip-path='url(#clip0_125_1785)'>
+        <path
+          d='M21.75 36C21.75 36.5967 21.9871 37.169 22.409 37.591C22.831 38.0129 23.4033 38.25 24 38.25C24.5967 38.25 25.169 38.0129 25.591 37.591C26.0129 37.169 26.25 36.5967 26.25 36V26.25H36C36.5967 26.25 37.169 26.0129 37.591 25.591C38.0129 25.169 38.25 24.5967 38.25 24C38.25 23.4033 38.0129 22.831 37.591 22.409C37.169 21.9871 36.5967 21.75 36 21.75H26.25V12C26.25 11.4033 26.0129 10.831 25.591 10.409C25.169 9.98705 24.5967 9.75 24 9.75C23.4033 9.75 22.831 9.98705 22.409 10.409C21.9871 10.831 21.75 11.4033 21.75 12V21.75H12C11.4033 21.75 10.831 21.9871 10.409 22.409C9.98705 22.831 9.75 23.4033 9.75 24C9.75 24.5967 9.98705 25.169 10.409 25.591C10.831 26.0129 11.4033 26.25 12 26.25H21.75V36Z'
+          fill='#2F7DFF'
+        />
+      </g>
+    </svg>
+  );
+};
+
+// 인원수 감소 아이콘
+export const SubtractIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg width={48} height={48} viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg' className={className} preserveAspectRatio='none'>
+      <circle cx={24} cy={24} r={24} fill='#EAF0FF' />
+      <g clip-path='url(#clip0_125_1792)'>
+        <path
+          fill-rule='evenodd'
+          clip-rule='evenodd'
+          d='M9.75 24C9.75 23.4033 9.98705 22.831 10.409 22.409C10.831 21.9871 11.4033 21.75 12 21.75H36C36.5967 21.75 37.169 21.9871 37.591 22.409C38.0129 22.831 38.25 23.4033 38.25 24C38.25 24.5967 38.0129 25.169 37.591 25.591C37.169 26.0129 36.5967 26.25 36 26.25H12C11.4033 26.25 10.831 26.0129 10.409 25.591C9.98705 25.169 9.75 24.5967 9.75 24Z'
+          fill='#2F7DFF'
+        />
+      </g>
+      <defs>
+        <rect width={36} height={36} fill='white' transform='translate(6 6)' />
+      </defs>
+    </svg>
+  );
+};
