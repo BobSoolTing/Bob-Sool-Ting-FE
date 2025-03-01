@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
-// BottomSheet 타입 정의
-export type BottomSheetType = 'place' | 'date' | 'personnel' | null;
+// BottomSheet 타입 정의에 category 추가
+export type BottomSheetType = 'place' | 'date' | 'personnel' | 'category' | null;
 
 interface PostFormState {
   isComplete: boolean;
@@ -12,6 +12,7 @@ interface PostFormState {
     place: string;
     date: string;
     personnel: string;
+    category: string; // category 필드 추가
   };
   openBottomSheet: (type: BottomSheetType) => void;
   closeBottomSheet: () => void;
@@ -27,6 +28,7 @@ export const usePostFormStore = create<PostFormState>((set) => ({
     place: '만남 장소를 입력해 주세요',
     date: '약속 날짜를 선택해 주세요',
     personnel: '인원 수를 선택해 주세요',
+    category: '카테고리를 선택해 주세요', // category 기본값 추가
   },
 
   // BottomSheet 열기 함수
@@ -43,9 +45,9 @@ export const usePostFormStore = create<PostFormState>((set) => ({
         [field]: value,
       };
 
-      // 모든 필수 필드가 채워졌는지 확인
-      const { title, content, place, date, personnel } = newFormData;
-      const isComplete = Boolean(title && content && place && date && personnel);
+      // 모든 필수 필드가 채워졌는지 확인 (category 포함)
+      const { title, content, place, date, personnel, category } = newFormData;
+      const isComplete = Boolean(title && content && place && date && personnel && category);
 
       return {
         formData: newFormData,
