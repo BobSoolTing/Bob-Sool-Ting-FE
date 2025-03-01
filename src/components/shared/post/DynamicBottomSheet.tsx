@@ -4,6 +4,7 @@ import { BottomSheetType } from '@/stores/post-form';
 import BottomSheetPlace from '@/components/shared/post/BottomSheetPlace';
 import BottomSheetDate from '@/components/shared/post/BottomSheetDate';
 import BottomSheetPersonnel from '@/components/shared/post/BottomSheetPersonnel';
+import BottomSheetCategorySelect from './BottomSheetCategorySelect';
 
 interface DynamicBottomSheetProps {
   activeSheet: BottomSheetType;
@@ -19,6 +20,8 @@ const DynamicBottomSheet: React.FC<DynamicBottomSheetProps> = ({ activeSheet, on
       return <BottomSheetDate height={'380px'} className={'flex justify-center'} isOpen={true} onClose={onClose} />;
     case 'personnel':
       return <BottomSheetPersonnel isOpen={true} onClose={onClose} />;
+    case 'category':
+      return <BottomSheetCategorySelect isOpen={true} onClose={onClose} />;
     default:
       return null;
   }
