@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlaceIcon, DateIcon, PersonnelIcon } from '@/assets/icons/SvgIcon';
+import { PlaceIcon, DateIcon, PersonnelIcon, BobSoolTingIcon } from '@/assets/icons/SvgIcon';
 import { BottomSheetType, usePostFormStore } from '@/stores/post-form';
 
 interface PostFormFieldsProps {
@@ -23,6 +23,10 @@ const PostFormFields: React.FC<PostFormFieldsProps> = ({ onFieldClick }) => {
       <div onClick={() => onFieldClick('personnel')} className='flex items-center h-5 cursor-pointer'>
         <PersonnelIcon className='mr-2' />
         <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.personnel}</div>
+      </div>
+      <div onClick={() => onFieldClick('category')} className='flex items-center h-5 cursor-pointer'>
+        <BobSoolTingIcon className='mr-2 w-4 h-4' />
+        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.category}</div>
       </div>
     </div>
   );
