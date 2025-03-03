@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 
 export default function LoginPage() {
   return (
-    <>
-      <div>로그인 페이지에용</div>
-      <div>로그인 페이지에용</div>
-    </>
+    <div className='w-[412px] h-[100vh] bg-white'>
+      <div className='flex flex-col items-center justify-center h-full gap-8'>
+        <div className='text-2xl font-bold'>로고</div>
+      </div>
+    </div>
   );
 }
