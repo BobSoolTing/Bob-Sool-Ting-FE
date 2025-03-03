@@ -6,24 +6,28 @@ import profileImage from '@/assets/images/profileImage.png';
 import { getTimeAgo } from '@/utils/timeAgo';
 import { getRating } from '@/utils/ratingCalc';
 
-const commentData = {
-  nickname: '수지',
-  rating: 50,
-  gender: 'WOMAN',
-  department: '연극영화학과', // 학과
-  studentNumber: 25, // 학번
-  birth: '2006-10-03', // 출생 연월일
-  comment:
-    '안녕하세요 테스트 댓글입니다. 안녕하세요 테스트 댓글입니다. 안녕하세요 테스트 댓글입니다. 안녕하세요 테스트 댓글입니다. 안녕하세요 테스트 댓글입니다. 안녕하세요 테스트 댓글입니다. ',
-  cratedAt: '2024-02-20',
-};
+interface CommentProps {
+  nickname: string;
+  rating: number;
+  gender: string;
+  department: string;
+  studentNumber: string;
+  birth: string;
+  comment: string;
+  child?: [];
+  cratedAt: string;
+}
 
-export default function RootComment() {
+interface RootCommentProps {
+  commentData: CommentProps;
+}
+
+export default function RootComment({ commentData }: RootCommentProps) {
   const timeAgo = getTimeAgo(commentData.cratedAt);
   const ratingString = getRating(commentData.rating);
 
   return (
-    <div className='flex gap-2 w-[412px]'>
+    <div className='flex gap-2 w-[380px]'>
       <Image src={profileImage} className='w-[64px] h-[64px] rounded-full object-cover aspect-square' alt='프로필 이미지' />
 
       <div className='flex-col'>
@@ -41,7 +45,7 @@ export default function RootComment() {
         <div className='flex gap-1 mb-2'>
           <p className='text-xs font-bold text-[#1b1b1b]'>{commentData.department}</p>
           <p className='text-xs font-bold text-[#1b1b1b]'>{`${commentData.studentNumber}학번`}</p>
-          <p className='text-xs font-bold text-[#1b1b1b]'>{`${commentData.birth.slice(2, 4)}년생`}</p>
+          <p className='text-xs font-bold text-[#1b1b1b]'>{commentData.birth ? `${commentData.birth.slice(2, 4)}년생` : ''}</p>
         </div>
 
         {/* 댓글 내용 */}
