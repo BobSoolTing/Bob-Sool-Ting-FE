@@ -109,7 +109,7 @@ export const usePostDetailStore = create<PostDetailStore>((set) => ({
 }));
 
 // 포스트 상세 정보를 위한 인터페이스 정의
-interface IPostDetail {
+export interface IPostDetail {
   category: 'Meal Date' | 'Drink Date' | 'Group Meeting'; // 카테고리 (밥약, 술약, 과팅)
   nickname: string; // 작성자 닉네임
   rating: number; // 평점
