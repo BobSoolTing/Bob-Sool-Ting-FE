@@ -25,13 +25,35 @@ const dummyData = {
   comment: [
     {
       nickname: '수지',
-      rating: 50,
-      gender: 'WOMAN',
+      rating: 95,
+      gender: 'MAN',
       department: '연극영화학과',
       studentNumber: 25,
       birth: '2006-10-03',
       comment: '안녕하세요 테스트 댓글입니다.',
       createdAt: '2025-03-02',
+      child: [
+        {
+          nickname: '수지',
+          rating: 50,
+          gender: 'MAN',
+          department: '연극영화학과',
+          studentNumber: 25,
+          birth: '2006-10-03',
+          comment: '안녕하세요 테스트 댓글입니다.',
+          createdAt: '2025-03-02',
+        },
+        {
+          nickname: '수지',
+          rating: 50,
+          gender: 'WOMAN',
+          department: '연극영화학과',
+          studentNumber: 25,
+          birth: '2006-10-03',
+          comment: '안녕하세요 테스트 댓글입니다.',
+          createdAt: '2025-03-02',
+        },
+      ],
     },
     {
       nickname: '수지',
@@ -53,6 +75,70 @@ const dummyData = {
       comment: '안녕하세요 테스트 댓글입니다.',
       createdAt: '2025-03-02',
     },
+    {
+      nickname: '수지',
+      rating: 95,
+      gender: 'WOMAN',
+      department: '연극영화학과',
+      studentNumber: 25,
+      birth: '2006-10-03',
+      comment: '안녕하세요 테스트 댓글입니다.',
+      createdAt: '2025-03-02',
+      child: [
+        {
+          nickname: '수지',
+          rating: 50,
+          gender: 'WOMAN',
+          department: '연극영화학과',
+          studentNumber: 25,
+          birth: '2006-10-03',
+          comment: '안녕하세요 테스트 댓글입니다.',
+          createdAt: '2025-03-02',
+        },
+        {
+          nickname: '수지',
+          rating: 50,
+          gender: 'WOMAN',
+          department: '연극영화학과',
+          studentNumber: 25,
+          birth: '2006-10-03',
+          comment: '안녕하세요 테스트 댓글입니다.',
+          createdAt: '2025-03-02',
+        },
+      ],
+    },
+    {
+      nickname: '수지',
+      rating: 95,
+      gender: 'WOMAN',
+      department: '연극영화학과',
+      studentNumber: 25,
+      birth: '2006-10-03',
+      comment: '안녕하세요 테스트 댓글입니다.',
+      createdAt: '2025-03-02',
+      child: [
+        {
+          nickname: '수지',
+          rating: 50,
+          gender: 'WOMAN',
+          department: '연극영화학과',
+          studentNumber: 25,
+          birth: '2006-10-03',
+          comment: '안녕하세요 테스트 댓글입니다.',
+          createdAt: '2025-03-02',
+        },
+        {
+          nickname: '수지',
+          rating: 50,
+          gender: 'WOMAN',
+          department: '연극영화학과',
+          studentNumber: 25,
+          birth: '2006-10-03',
+          comment: '안녕하세요 테스트 댓글입니다.',
+          createdAt: '2025-03-02',
+        },
+      ],
+    },
   ],
 };
 
@@ -66,12 +152,14 @@ export default function PostDetailPage() {
   return (
     <>
       <Header>{postDetail.category === 'Meal Date' ? '밥약' : postDetail.category === 'Drink Date' ? '술약' : '과팅'}</Header>
-      <div className='w-full px-4 py-2'>
-        <PostProfile postDetail={postDetail} />
-        <PostDetailContent postDetail={postDetail} />
+      <div className='pt-4 pb-16'>
+        <div className='w-full px-4 py-2'>
+          <PostProfile postDetail={postDetail} />
+          <PostDetailContent postDetail={postDetail} />
+        </div>
+        <div className='w-[412px] h-2 overflow-hidden bg-[#f6f8fa] my-4' />
+        <PostComment postDetail={postDetail} />
       </div>
-      <div className='w-[412px] h-2 overflow-hidden bg-[#f6f8fa] my-4' />
-      <PostComment postDetail={postDetail} />
     </>
   );
 }
