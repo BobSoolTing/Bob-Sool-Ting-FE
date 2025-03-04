@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import profileImage from '@/assets/images/profileImage.png';
 import { getTimeAgo } from '@/utils/timeAgo';
-import { getRating } from '@/utils/ratingCalc';
+import { getRating, getRatingWithStyle } from '@/utils/ratingCalc';
 
 interface CommentProps {
   nickname: string;
@@ -15,7 +15,7 @@ interface CommentProps {
   birth: string;
   comment: string;
   child?: [];
-  cratedAt: string;
+  createdAt: string;
 }
 
 interface RootCommentProps {
@@ -23,8 +23,8 @@ interface RootCommentProps {
 }
 
 export default function RootComment({ commentData }: RootCommentProps) {
-  const timeAgo = getTimeAgo(commentData.cratedAt);
-  const ratingString = getRating(commentData.rating);
+  const timeAgo = getTimeAgo(commentData.createdAt);
+  const { style, grade } = getRatingWithStyle(commentData.rating);
 
   return (
     <div className='flex gap-2 w-[380px]'>
@@ -34,8 +34,10 @@ export default function RootComment({ commentData }: RootCommentProps) {
         {/* 상단 사용자 정보 */}
         <div className='flex items-center gap-2'>
           <div className='text-base font-bold text-[#1b1b1b]'>{commentData.nickname}</div>
-          <div className='flex items-center justify-center h-3 px-1 rounded-sm bg-[#4a90e2]/20'>
-            <span className='text-[10px] font-medium text-[#767676]'>{ratingString}</span>
+          <div className='flex items-center justify-center h-3 px-1 rounded-sm' style={{ backgroundColor: `${style.color}20` }}>
+            <span className='text-[10px] font-medium' style={{ color: style.textColor }}>
+              {grade}
+            </span>
           </div>
           {commentData.gender === 'MAN' ? <ManIcon className='w-3 h-3' /> : <WomanIcon className='w-3 h-3' />}
           <p className='text-xs font-medium text-[#999]'>{timeAgo}</p>
