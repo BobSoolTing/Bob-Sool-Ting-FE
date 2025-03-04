@@ -4,8 +4,28 @@ import { CopyIcon } from '@/assets/icons/SvgIcon';
 import BottomSheet from '@/components/shared/post/BottomSheet';
 import Button from '../Button';
 
+interface Profile {
+  id: number;
+  name: string;
+  imageUrl: string;
+}
+
+const sampleProfiles: Profile[] = [
+  {
+    id: 1,
+    name: '홍길동',
+    imageUrl: 'https://via.placeholder.com/70',
+  },
+  {
+    id: 2,
+    name: '김철수',
+    imageUrl: 'https://via.placeholder.com/70',
+  },
+];
+
 export default function MatchedContent() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
   const [copySuccess, setCopySuccess] = useState(false);
   const details = [
     { label: '모집글', value: '밥약 하실 후배님을 찾습니다.' },
@@ -29,6 +49,18 @@ export default function MatchedContent() {
         console.error('복사 실패:', err);
       }
     );
+  };
+
+  const handleProfileClick = (profile: Profile) => {
+    setSelectedProfile(profile); // 선택한 프로필 저장
+  };
+
+  const handleClose = () => {
+    if (selectedProfile) {
+      setSelectedProfile(null); // 상세정보 닫기 → 프로필 목록으로 돌아가기
+    } else {
+      setIsOpen(false); // 목록 바텀시트 닫기
+    }
   };
 
   return (
@@ -72,21 +104,36 @@ export default function MatchedContent() {
       )}
 
       {/* BottomSheet 컴포넌트 */}
-      <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)} height='238px'>
-        {/* 바텀시트 내용 */}
+      <BottomSheet isOpen={isOpen} onClose={handleClose} height={selectedProfile ? '340px' : '238px'}>
         <div className='p-4'>
-          <span className='text-xl font-bold text-[#1b1b1b]'>00에 참여한 인원들의 프로필이에요.</span>
-          {/* 프로필 사진과 닉네임 추가 */}
-          <div className='flex flex-col items-center pt-4'>
-            <img
-              src='https://via.placeholder.com/70' // 프로필 사진 URL (여기에 실제 프로필 사진 URL을 넣으면 됩니다)
-              alt='Profile'
-              className='w-[70px] h-[70px] rounded-full'
-            />
-            <span className='text-base font-bold mt-[6px]'>홍길동</span>
-          </div>
+          {selectedProfile ? (
+            // 선택한 프로필 상세 정보
+            <div className='flex flex-col items-center'>
+              <span className='text-xl font-bold text-[#1b1b1b]'>모임 참가자인 {selectedProfile.name}님의 상세정보에요.</span>
+              <div className='mt-4 mb-8'>
+                <ProfileItem />
+              </div>
+            </div>
+          ) : (
+            // 프로필 목록
+            <>
+              <span className='text-xl font-bold text-[#1b1b1b]'>00에 참여한 인원들의 프로필이에요.</span>
+              <div className='flex pt-4 gap-4'>
+                {sampleProfiles.map((profile) => (
+                  <div
+                    key={profile.id}
+                    className='flex flex-col items-center cursor-pointer'
+                    onClick={() => handleProfileClick(profile)} // 클릭 시 상세정보 전환
+                  >
+                    <img src={profile.imageUrl} alt='Profile' className='w-[70px] h-[70px] rounded-full' />
+                    <span className='text-base font-bold mt-[6px]'>{profile.name}</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
-        <Button isComplete={true} onClick={() => setIsOpen(false)}>
+        <Button isComplete={true} onClick={handleClose}>
           닫기
         </Button>
       </BottomSheet>
