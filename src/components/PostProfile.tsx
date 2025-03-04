@@ -4,15 +4,16 @@ import profileImage from '@/assets/images/profileImage.png';
 import { ManIcon, WomanIcon, HeartIcon } from '@/assets/icons/SvgIcon';
 import { getRatingWithStyle } from '@/utils/ratingCalc';
 import { getTimeAgo } from '@/utils/timeAgo';
-import { IPostDetail } from '@/stores/post-detail';
+import { IPostDetail, usePostDetailStore } from '@/stores/post-detail';
 
 const PostProfile = ({ postDetail }: { postDetail: IPostDetail }) => {
   const { grade, style } = getRatingWithStyle(postDetail.rating);
   const birthYear = postDetail.birth.substring(2, 4);
   const time = getTimeAgo(postDetail.createdAt);
+  const { incrementLikeCount } = usePostDetailStore();
 
   return (
-    <div className='w-full flex items-center mt-4'>
+    <div className='w-full flex items-center'>
       {/* 프로필 이미지 */}
       <div className='flex-shrink-0 mr-6'>
         <Image width={50} height={50} className='rounded-full' src={profileImage} alt='프로필 사진' />
@@ -36,7 +37,12 @@ const PostProfile = ({ postDetail }: { postDetail: IPostDetail }) => {
       </div>
 
       {/* 좋아요 아이콘 */}
-      <div className='flex flex-col items-center justify-center h-full'>
+      <div
+        onClick={() => {
+          incrementLikeCount();
+        }}
+        className='flex flex-col items-center justify-center h-full cursor-pointer'
+      >
         <HeartIcon className='w-4 h-4 mb-1' />
         <p className='text-xs font-bold text-[#999]'>{postDetail.likeCount}</p>
       </div>

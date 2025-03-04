@@ -11,7 +11,7 @@ const PostComment = ({ postDetail }: { postDetail: IPostDetail }) => {
         <div className='text-[20px] text-bold text-[#2768FF] ml-1'>{postDetail.comment.length}</div>
       </div>
       <CommentInput />
-      <div className='flex flex-col gap-8 px-4'>
+      <div className='flex flex-col px-4'>
         {postDetail.comment.map((commentData, index) => (
           <RootComment key={index} commentData={commentData} />
         ))}
