@@ -4,13 +4,15 @@ import RegisterIndicator from '@/components/shared/register/RegisterIndicator';
 import RegisterInput from '@/components/shared/register/RegisterInput';
 import { useRegisterStore } from '@/stores/register-form';
 import RegisterProfileImage from '@/components/shared/register/RegisterProfileImage';
+import RegisterSelectInput from '@/components/shared/register/RegisterSelectInput';
+import RegisterMobileCarrierInput from '@/components/shared/register/RegisterMobileCarrierInput';
 
 export default function RegisterPage() {
   const [step, setStep] = useState(0);
   const store = useRegisterStore();
 
   useEffect(() => {
-    setStep(2);
+    setStep(3);
   }, []);
 
   const renderStepContent = () => {
@@ -31,15 +33,20 @@ export default function RegisterPage() {
             <RegisterProfileImage></RegisterProfileImage>
             <RegisterInput label={'닉네임'} placeholder={'닉네임을 입력해주세요'} storeKey='nickname' />
             <RegisterInput label={'생년월일'} placeholder={'YYMMDD'} storeKey='birth' />
-            <RegisterInput label={'성별'} placeholder={'성별을 입력해주세요'} storeKey='gender' />
+            <RegisterSelectInput label={'성별'} placeholder={'성별을 선택해주세요'} storeKey='gender'></RegisterSelectInput>
           </>
         );
       case 3:
         return (
           <>
             <RegisterIndicator step={step}>휴대폰 인증을 진행해주세요</RegisterIndicator>
+            <RegisterMobileCarrierInput
+              label={'통신사'}
+              placeholder={'통신사를 선택해주세요'}
+              storeKey={'mobileCarrier'}
+            ></RegisterMobileCarrierInput>
             <RegisterInput label={'휴대폰 번호'} placeholder={'- 없이 입력해주세요'} storeKey='phone' />
-            <RegisterInput label={'통신사'} placeholder={'통신사를 선택해주세요'} storeKey='mobileCarrier' />
+
             <RegisterInput label={'인증번호'} placeholder={'인증번호를 입력해주세요'} storeKey='verification' />
           </>
         );
