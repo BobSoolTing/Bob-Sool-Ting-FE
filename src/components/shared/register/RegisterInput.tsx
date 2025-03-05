@@ -32,7 +32,7 @@ export default function RegisterInput({ label, placeholder, type = 'text', store
           type={type}
           value={value}
           onChange={(e) => setter(e.target.value)}
-          className='text-xl font-medium text-[#1b1b1b] w-[340px] outline-none focus:border-none focus:outline-none'
+          className='text-xl font-medium text-[#1b1b1b] w-[300px] outline-none focus:border-none focus:outline-none'
           placeholder={placeholder}
         />
         {value && (
