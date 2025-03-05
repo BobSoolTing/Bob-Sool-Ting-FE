@@ -3,13 +3,14 @@ import Button from '@/components/shared/Button';
 import RegisterIndicator from '@/components/shared/register/RegisterIndicator';
 import RegisterInput from '@/components/shared/register/RegisterInput';
 import { useRegisterStore } from '@/stores/register-form';
+import RegisterProfileImage from '@/components/shared/register/RegisterProfileImage';
 
 export default function RegisterPage() {
   const [step, setStep] = useState(0);
   const store = useRegisterStore();
 
   useEffect(() => {
-    setStep(1);
+    setStep(2);
   }, []);
 
   const renderStepContent = () => {
@@ -27,7 +28,7 @@ export default function RegisterPage() {
         return (
           <>
             <RegisterIndicator step={step}>어떤 프로필로 대화할까요?</RegisterIndicator>
-
+            <RegisterProfileImage></RegisterProfileImage>
             <RegisterInput label={'닉네임'} placeholder={'닉네임을 입력해주세요'} storeKey='nickname' />
             <RegisterInput label={'생년월일'} placeholder={'YYMMDD'} storeKey='birth' />
             <RegisterInput label={'성별'} placeholder={'성별을 입력해주세요'} storeKey='gender' />

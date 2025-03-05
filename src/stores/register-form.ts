@@ -10,6 +10,7 @@ export interface IRegister {
   phone: string;
   mobileCarrier: 'SKT' | 'KT' | 'LGU+' | '';
   verification: number | '';
+  profileImage: string | null; // 프로필 이미지 추가
 }
 
 interface RegisterStore extends IRegister {
@@ -22,6 +23,7 @@ interface RegisterStore extends IRegister {
   setPhone: (phone: string) => void;
   setMobileCarrier: (carrier: 'SKT' | 'KT' | 'LGU+' | '') => void;
   setVerification: (verification: number) => void;
+  setProfileImage: (profileImage: string | null) => void; // 프로필 이미지 setter 추가
   resetRegister: () => void;
 }
 
@@ -35,6 +37,7 @@ const initialState: IRegister = {
   phone: '',
   mobileCarrier: '',
   verification: '',
+  profileImage: null, // 초기 상태에 프로필 이미지 추가
 };
 
 export const useRegisterStore = create<RegisterStore>((set) => ({
@@ -49,5 +52,6 @@ export const useRegisterStore = create<RegisterStore>((set) => ({
   setPhone: (phone) => set({ phone }),
   setMobileCarrier: (mobileCarrier) => set({ mobileCarrier }),
   setVerification: (verification) => set({ verification }),
+  setProfileImage: (profileImage) => set({ profileImage }), // 프로필 이미지 setter 구현
   resetRegister: () => set(initialState),
 }));
