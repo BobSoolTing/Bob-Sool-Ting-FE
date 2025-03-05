@@ -12,7 +12,7 @@ export default function RegisterPage() {
   const store = useRegisterStore();
 
   useEffect(() => {
-    setStep(3);
+    setStep(1);
   }, []);
 
   const renderStepContent = () => {
@@ -45,8 +45,12 @@ export default function RegisterPage() {
               placeholder={'통신사를 선택해주세요'}
               storeKey={'mobileCarrier'}
             ></RegisterMobileCarrierInput>
-            <RegisterInput label={'휴대폰 번호'} placeholder={'- 없이 입력해주세요'} storeKey='phone' />
-
+            <div className='flex items-center'>
+              <RegisterInput label={'휴대폰 번호'} placeholder={'- 없이 입력해주세요'} storeKey='phone' width='w-[270px]' />
+              <div className='flex cursor-pointer active:bg-[#2768FF] w-[100px] h-8 items-center justify-center text-center text-[16px] text-[#ffffff] ml-auto bg-[#2F7DFF] rounded-lg'>
+                <p>인증 번호 받기</p>
+              </div>
+            </div>
             <RegisterInput label={'인증번호'} placeholder={'인증번호를 입력해주세요'} storeKey='verification' />
           </>
         );

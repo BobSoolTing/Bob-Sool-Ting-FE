@@ -2,7 +2,15 @@ import React from 'react';
 import { useRegisterStore } from '@/stores/register-form';
 import { ClearIcon } from '@/assets/icons/SvgIcon';
 
-export default function RegisterInput({ label, placeholder, type = 'text', storeKey }) {
+interface RegisterInputProps {
+  label: string;
+  placeholder: string;
+  type?: string;
+  storeKey: string;
+  width?: string;
+}
+
+export default function RegisterInput({ label, placeholder, type = 'text', storeKey, width = 'w-full' }: RegisterInputProps) {
   const store = useRegisterStore();
 
   const setterMap = {
@@ -25,14 +33,14 @@ export default function RegisterInput({ label, placeholder, type = 'text', store
   };
 
   return (
-    <div className='flex flex-col mb-8'>
+    <div className={`flex flex-col mb-8 ${width}`}>
       <label className='text-sm font-medium text-[#ccc] mb-2'>{label}</label>
       <div className='flex items-center justify-between border-b border-[#ccc] pb-2'>
         <input
           type={type}
           value={value}
           onChange={(e) => setter(e.target.value)}
-          className='text-xl font-medium text-[#1b1b1b] w-[300px] outline-none focus:border-none focus:outline-none'
+          className={`text-xl font-medium text-[#1b1b1b] w-full outline-none focus:border-none focus:outline-none`}
           placeholder={placeholder}
         />
         {value && (
