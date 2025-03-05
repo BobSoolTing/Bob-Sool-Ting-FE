@@ -6,14 +6,71 @@ import { useRegisterStore } from '@/stores/register-form';
 import RegisterProfileImage from '@/components/shared/register/RegisterProfileImage';
 import RegisterSelectInput from '@/components/shared/register/RegisterSelectInput';
 import RegisterMobileCarrierInput from '@/components/shared/register/RegisterMobileCarrierInput';
+import { validateUniversity, validateDepartment, validateStudentNumber, validateNickname, validateBirth } from '@/utils/validations';
 
 export default function RegisterPage() {
   const [step, setStep] = useState(0);
+  const [errors, setErrors] = useState<string[]>([]);
   const store = useRegisterStore();
 
   useEffect(() => {
     setStep(1);
   }, []);
+
+  const validateCurrentStep = () => {
+    const stepValidations = {
+      1: () => {
+        const universityValidation = validateUniversity(store.university);
+        const departmentValidation = validateDepartment(store.department);
+        const studentNumberValidation = validateStudentNumber(store.studentNumber);
+
+        const validationErrors = [
+          !universityValidation.isValid && universityValidation.errorMessage,
+          !departmentValidation.isValid && departmentValidation.errorMessage,
+          !studentNumberValidation.isValid && studentNumberValidation.errorMessage,
+        ].filter(Boolean) as string[];
+        return validationErrors.length === 0;
+      },
+      2: () => {
+        const nicknameValidation = validateNickname(store.nickname);
+        const birthValidation = validateBirth(store.birth);
+        const genderValidation = store.gender !== '';
+
+        const validationErrors = [
+          !nicknameValidation.isValid && nicknameValidation.errorMessage,
+          !birthValidation.isValid && birthValidation.errorMessage,
+          !genderValidation && '성별을 선택해주세요.',
+        ].filter(Boolean) as string[];
+
+        setErrors(validationErrors);
+        return validationErrors.length === 0;
+      },
+      3: () => {
+        const validationErrors = [
+          store.phone === '' && '휴대폰 번호를 입력해주세요.',
+          store.mobileCarrier === '' && '통신사를 선택해주세요.',
+          store.verification === '' && '인증번호를 입력해주세요.',
+        ].filter(Boolean) as string[];
+
+        setErrors(validationErrors);
+        return validationErrors.length === 0;
+      },
+    };
+
+    return stepValidations[step]();
+  };
+
+  const handleNextStep = () => {
+    if (validateCurrentStep()) {
+      if (step < 3) {
+        setStep((prevStep) => prevStep + 1);
+        setErrors([]);
+      } else {
+        // API 요청 로직
+        console.log(store);
+      }
+    }
+  };
 
   const renderStepContent = () => {
     switch (step) {
@@ -32,7 +89,7 @@ export default function RegisterPage() {
             <RegisterIndicator step={step}>어떤 프로필로 대화할까요?</RegisterIndicator>
             <RegisterProfileImage></RegisterProfileImage>
             <RegisterInput label={'닉네임'} placeholder={'닉네임을 입력해주세요'} storeKey='nickname' />
-            <RegisterInput label={'생년월일'} placeholder={'YYMMDD'} storeKey='birth' />
+            <RegisterInput label={'생년월일'} placeholder={'YYYY-MM-DD'} storeKey='birth' />
             <RegisterSelectInput label={'성별'} placeholder={'성별을 선택해주세요'} storeKey='gender'></RegisterSelectInput>
           </>
         );
@@ -59,39 +116,25 @@ export default function RegisterPage() {
     }
   };
 
-  const isStepComplete = () => {
-    switch (step) {
-      case 1:
-        return store.university !== '' && store.department !== '' && store.studentNumber !== '';
-      case 2:
-        return store.nickname !== '' && store.birth !== '' && store.gender !== '';
-      case 3:
-        return store.phone !== '' && store.mobileCarrier !== '' && store.verification !== '';
-      default:
-        return false;
-    }
-  };
-
-  const handleNextStep = () => {
-    if (isStepComplete() && step < 3) {
-      setStep((prevStep) => prevStep + 1);
-    } else if (isStepComplete() && step === 3) {
-      console.log(store);
-      /* API 요청 코드 예정입니다 */
-      /* API 요청 코드 예정입니다 */
-      /* API 요청 코드 예정입니다 */
-      /* API 요청 코드 예정입니다 */
-    }
-  };
-
   return (
     <>
-      <div className='px-4 py-4'>{renderStepContent()}</div>
+      <div className='px-4 py-4'>
+        {errors.length > 0 && (
+          <div className='mb-4'>
+            {errors.map((error, index) => (
+              <p key={index} className='text-red-500 text-sm'>
+                {error}
+              </p>
+            ))}
+          </div>
+        )}
+        {renderStepContent()}
+      </div>
       <div className='flex'>
         <Button
-          isComplete={isStepComplete()}
+          isComplete={errors.length === 0}
           onClick={handleNextStep}
-          className={`absolute bottom-4 left-0 right-0 ${isStepComplete() ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
+          className={`absolute bottom-4 left-0 right-0 ${errors.length === 0 ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
         >
           {step === 3 ? '완료' : '다음'}
         </Button>
