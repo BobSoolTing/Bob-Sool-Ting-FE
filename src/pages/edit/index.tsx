@@ -1,6 +1,5 @@
 // @/pages/edit/index.tsx
 import { useRouter } from 'next/router';
-import NotFoundPage from '@/pages/404';
 import BottomBar from '@/components/shared/bst/BottomBar';
 import { ReactNode } from 'react';
 import Button from '@/components/shared/Button';
@@ -11,14 +10,10 @@ import DynamicBottomSheet from '@/components/shared/post/DynamicBottomSheet';
 import TitleInput from '@/components/shared/post/TitleInput';
 import ContentInput from '@/components/shared/post/ContentInput';
 
-// 허용된 카테고리 목록
-const ALLOWED_CATEGORIES = ['bob', 'sool', 'ting'];
-
 export default function PostEditPage() {
   const { isComplete, activeSheet, openBottomSheet, closeBottomSheet, updateFormData, resetFormData } = usePostFormStore();
 
   const router = useRouter();
-  const { category } = router.query;
 
   const onClickButton = () => {
     /** API 구현 완료 시 코드 추가 예정 */
@@ -28,11 +23,6 @@ export default function PostEditPage() {
     resetFormData();
     router.back();
   };
-
-  // 유효하지 않은 카테고리인 경우 404 에러 표시
-  if (router.isReady && category && !ALLOWED_CATEGORIES.includes(category as string)) {
-    return <NotFoundPage />;
-  }
 
   return (
     <div className='relative flex flex-col w-full h-screen bg-white pb-[56px]'>
