@@ -13,23 +13,29 @@ interface BottomSheetAlertProps {
 export default function BottomSheetAlert({ className, isOpen, onClose }: BottomSheetAlertProps) {
   return (
     <BottomSheet height={'auto'} className={className} isOpen={isOpen} onClose={onClose}>
-      <div className='flex flex-col h-[326px] mx-4 my-4 gap-2'>
-        <span className='w-[380px] h-[auto] text-xl font-bold text-center text-[#1b1b1b]'>00에 참여하고 싶은 00님의 상세정보에요.</span>
+      <div className='flex flex-col gap-2 m-4'>
+        {/* 신청 제목 */}
+        <div className='w-full text-xl font-bold text-center text-[#1b1b1b]'>00에 참여하고 싶은 00님의 상세정보에요.</div>
+
+        {/* 신청자의 프로필 정보 */}
         <div className='flex justify-center w-full'>
           <ProfileItem />
         </div>
-        <div className='w-[380px] h-[50px] px-2 py-2 rounded-md border border-[#2f7dff]'>
-          <p className='w-[auto] h-[auto] text-xs font-medium text-left text-[#1b1b1b]'>
-            선배님 메뉴는 정해졌나요?? 찌개로 먹으면 너무 좋을 거 같아요.
-          </p>
+
+        {/* 신청 내용 */}
+        <div className='w-full p-2 border rounded-md border-[#2f7dff]'>
+          <div className='text-xs text-left text-[#1b1b1b]'>선배님 메뉴는 정해졌나요?? 찌개로 먹으면 너무 좋을 거 같아요.</div>
         </div>
-        <div className='flex mt-2'>
-          <div className='w-[186px] h-[50px] flex items-center justify-center rounded-md bg-[#999] mx-auto cursor-pointer hover:bg-[#8A8A8A]'>
-            <p className='text-xl font-bold text-white'>거절</p>
-          </div>
-          <div className='w-[186px] h-[50px] flex items-center justify-center rounded-md bg-[#2f7dff] mx-auto cursor-pointer hover:bg-[#2768FF]'>
-            <p className='text-xl font-bold text-white'>수락</p>
-          </div>
+
+        {/* 거절 및 수락 버튼 */}
+        <div className='flex justify-between gap-2 mt-2'>
+          <button className='flex-1 h-[50px] flex items-center justify-center rounded-md bg-[#999] text-white hover:bg-[#8A8A8A] transition-colors'>
+            <span className='text-xl font-bold'>거절</span>
+          </button>
+
+          <button className='flex-1 h-[50px] flex items-center justify-center rounded-md bg-[#2f7dff] text-white hover:bg-[#2768FF] transition-colors'>
+            <span className='text-xl font-bold'>수락</span>
+          </button>
         </div>
       </div>
     </BottomSheet>
