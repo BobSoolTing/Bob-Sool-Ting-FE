@@ -2,15 +2,18 @@ import React from 'react';
 import { ReactNode } from 'react';
 import BottomSheet from './BottomSheet';
 import ProfileItem from '../ProfileItem';
+import ActionButton from './ActionButton';
 
 interface BottomSheetAlertProps {
   className?: string;
   children?: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  onReject: () => void;
+  onAccept: () => void;
 }
 
-export default function BottomSheetAlert({ className, isOpen, onClose }: BottomSheetAlertProps) {
+export default function BottomSheetAlert({ className, isOpen, onClose, onReject = () => {}, onAccept = () => {} }: BottomSheetAlertProps) {
   return (
     <BottomSheet height={'auto'} className={className} isOpen={isOpen} onClose={onClose}>
       <div className='flex flex-col gap-2 m-4'>
@@ -29,13 +32,12 @@ export default function BottomSheetAlert({ className, isOpen, onClose }: BottomS
 
         {/* 거절 및 수락 버튼 */}
         <div className='flex justify-between gap-2 mt-2'>
-          <button className='flex-1 h-[50px] flex items-center justify-center rounded-md bg-[#999] text-white hover:bg-[#8A8A8A] transition-colors'>
-            <span className='text-xl font-bold'>거절</span>
-          </button>
-
-          <button className='flex-1 h-[50px] flex items-center justify-center rounded-md bg-[#2f7dff] text-white hover:bg-[#2768FF] transition-colors'>
-            <span className='text-xl font-bold'>수락</span>
-          </button>
+          <ActionButton type='reject' onClick={onReject}>
+            거절
+          </ActionButton>
+          <ActionButton type='accept' onClick={onAccept}>
+            수락
+          </ActionButton>
         </div>
       </div>
     </BottomSheet>

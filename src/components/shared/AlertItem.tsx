@@ -79,7 +79,9 @@ export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete, onCl
           <p className='text-xs font-bold text-white'>삭제</p>
         </div>
       </div>
-      <BottomSheetAlert isOpen={isBottomSheetOpen} onClose={() => setIsBottomSheetOpen(false)} />
+
+      {/* 바텀 시트 */}
+      <BottomSheetAlert isOpen={isBottomSheetOpen} onClose={() => setIsBottomSheetOpen(false)} onAccept={() => {}} onReject={() => {}} />
     </>
   );
 }
