@@ -558,10 +558,19 @@ export const MatchedIcon = ({ className }: { className?: string }) => {
 };
 
 // 복사 아이콘
-export const CopyIcon = ({ className }: { className?: string }) => {
+export const CopyIcon = ({ onClick, className }: { onClick?: () => void; className?: string }) => {
   return (
-    <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
-      <g clipPath='url(#clip0_193_761)'>
+    <svg
+      onClick={onClick}
+      className={`cursor-pointer ${className || ''}`}
+      width={16}
+      height={16}
+      viewBox='0 0 16 16'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      preserveAspectRatio='none'
+    >
+      <g clip-path='url(#clip0_193_761)'>
         <path
           fillRule='evenodd'
           clipRule='evenodd'
