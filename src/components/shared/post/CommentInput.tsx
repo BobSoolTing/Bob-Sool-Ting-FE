@@ -22,14 +22,14 @@ export default function CommentInput() {
   };
 
   return (
-    <div className='w-[380px] h-[56px] mx-[16px] my-[8px]'>
+    <div className='w-[380px] h-[56px] mx-[16px] mb-[16px]'>
       <div className='w-[380px] h-[56px] flex items-center'>
         <Image className='rounded-full' src={profileImage} alt='Profile' width={40} height={40} />
         <div className='w-[332px] h-[36px] ml-4 rounded-[32px] border border-[#999] flex items-center'>
           <input
             type='text'
             placeholder='댓글을 남겨주세요 :)'
-            className='w-[300px] h-[28px] mx-auto'
+            className='w-[300px] h-[28px] mx-auto outline-none focus:ring-0'
             value={input}
             onChange={onChangeInput}
             onKeyDown={onKeyDownEnter}

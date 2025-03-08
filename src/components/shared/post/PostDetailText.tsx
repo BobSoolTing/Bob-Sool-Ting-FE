@@ -11,7 +11,7 @@ export default function DetailPageText({ children, type }: DetailPageTextProp) {
     case 'title':
       return <p className='w-[380px] h-[30px] text-xl font-bold text-left text-[#1b1b1b] flex items-center my-2'>{children}</p>;
     case 'content':
-      return <p className='w-[380px] my-2 text-base font-medium text-left text-[#999]'>{children}</p>;
+      return <p className='w-[380px] mt-2 mb-4 text-base font-medium text-left text-[#999]'>{children}</p>;
     case 'place':
       return (
         <div className='flex-grow-0 flex-shrink-0 w-[380px] h-4 flex items-center my-2'>
