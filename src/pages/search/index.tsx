@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactNode } from 'react';
+import { useRouter } from 'next/router';
 import BottomBar from '@/components/shared/bst/BottomBar';
 import { SearchBarIcon, ClearIcon, ClockIcon, SearchCloseIcon } from '@/assets/icons/SvgIcon';
 
@@ -9,17 +10,22 @@ export default function SearchPage() {
 
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
 
+  const router = useRouter();
+  const { query } = router.query;
+
+  useEffect(() => {
+    if (query) {
+      setSearchTerm(Array.isArray(query) ? query[0] : query);
+    }
+  }, [query]);
+
   const handleSearch = (term = searchTerm) => {
     if (!term.trim()) return;
 
     setRecentSearches((prev) => [term, ...prev.filter((item) => item !== term)]);
 
-    console.log(`"${selectedCategory}" 카테고리에서 "${term}" 검색 실행`);
-
-    // API 호출 가능
-    // searchPosts(term, selectedCategory);
-
-    setSearchTerm('');
+    // 검색 페이지로 이동
+    router.push(`/search/searchresultpage?query=${encodeURIComponent(term)}&category=${encodeURIComponent(selectedCategory)}`);
   };
 
   const handleDeleteSearch = (index: number) => {
@@ -47,8 +53,8 @@ export default function SearchPage() {
         <SearchBarIcon />
         <input
           type='text'
-          className='bg-transparent outline-none flex-grow'
-          placeholder='나와 맞는 밥술팅 검색하기'
+          className='bg-transparent outline-none text-[#1b1b1b] flex-grow'
+          placeholder={searchTerm || '나와 맞는 밥술팅 검색하기'}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
