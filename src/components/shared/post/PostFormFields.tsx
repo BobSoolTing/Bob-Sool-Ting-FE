@@ -12,7 +12,7 @@ const PostFormFields: React.FC<PostFormFieldsProps> = ({ onFieldClick }) => {
     <div className='flex flex-col w-full space-y-4 mb-4'>
       <div onClick={() => onFieldClick('place')} className='flex items-center h-5 cursor-pointer'>
         <PlaceIcon className='mr-2' />
-        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.place}</div>
+        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.location}</div>
       </div>
 
       <div onClick={() => onFieldClick('date')} className='flex items-center h-5 cursor-pointer'>
@@ -22,11 +22,24 @@ const PostFormFields: React.FC<PostFormFieldsProps> = ({ onFieldClick }) => {
 
       <div onClick={() => onFieldClick('personnel')} className='flex items-center h-5 cursor-pointer'>
         <PersonnelIcon className='mr-2' />
-        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.personnel}</div>
+        {formData.max_participants === 999 ? (
+          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>인원 수를 선택해 주세요</div>
+        ) : (
+          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.max_participants}인</div>
+        )}
       </div>
+
       <div onClick={() => onFieldClick('category')} className='flex items-center h-5 cursor-pointer'>
         <BobSoolTingIcon className='mr-2 w-4 h-4' />
-        <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>{formData.category}</div>
+        {formData.category === 'BOB' ? (
+          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>밥약</div>
+        ) : formData.category === 'SOOL' ? (
+          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>술약</div>
+        ) : formData.category === 'TING' ? (
+          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>과팅</div>
+        ) : (
+          <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>카테고리를 선택해 주세요</div>
+        )}
       </div>
     </div>
   );
