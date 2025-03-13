@@ -9,10 +9,11 @@ interface PostFormState {
   formData: {
     title: string;
     content: string;
-    place: string;
+    location: string;
     date: string;
-    personnel: string;
-    category: string;
+    max_participants: number;
+    category: 'BOB' | 'SOOL' | 'TING' | '카테고리를 선택해 주세요';
+    recruitment_status: 'RECRUITING';
   };
   openBottomSheet: (type: BottomSheetType) => void;
   closeBottomSheet: () => void;
@@ -26,10 +27,11 @@ export const usePostFormStore = create<PostFormState>((set) => ({
   formData: {
     title: '',
     content: '',
-    place: '만남 장소를 입력해 주세요',
+    location: '만남 장소를 입력해 주세요',
     date: '약속 날짜를 선택해 주세요',
-    personnel: '인원 수를 선택해 주세요',
+    max_participants: 999,
     category: '카테고리를 선택해 주세요',
+    recruitment_status: 'RECRUITING',
   },
 
   // BottomSheet 열기 함수
@@ -47,13 +49,13 @@ export const usePostFormStore = create<PostFormState>((set) => ({
       };
 
       // 모든 필수 필드가 채워졌는지 확인 (category 포함)
-      const { title, content, place, date, personnel, category } = newFormData;
+      const { title, content, location, date, max_participants, category } = newFormData;
       const isComplete = Boolean(
         title &&
           content &&
-          place !== '만남 장소를 입력해 주세요' &&
+          location !== '만남 장소를 입력해 주세요' &&
           date !== '약속 날짜를 선택해 주세요' &&
-          personnel !== '인원 수를 선택해 주세요' &&
+          max_participants !== 999 &&
           category !== '카테고리를 선택해 주세요'
       );
 
@@ -70,10 +72,11 @@ export const usePostFormStore = create<PostFormState>((set) => ({
       formData: {
         title: '',
         content: '',
-        place: '만남 장소를 입력해 주세요',
+        location: '만남 장소를 입력해 주세요',
         date: '약속 날짜를 선택해 주세요',
-        personnel: '인원 수를 선택해 주세요',
+        max_participants: 999,
         category: '카테고리를 선택해 주세요',
+        recruitment_status: 'RECRUITING',
       },
     }),
 }));
