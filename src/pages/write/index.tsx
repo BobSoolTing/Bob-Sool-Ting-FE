@@ -37,7 +37,7 @@ export default function WritePage() {
   const createPost = async () => {
     try {
       // 폼 데이터를 요청 바디로 전달하고, 헤더는 세 번째 파라미터로 전달
-      console.log(token);
+      console.log(formData);
       const res = await axios.post(`${BACKEND_URL}/api/post`, formData, {
         headers: { Authorization: `${token}` },
       });
