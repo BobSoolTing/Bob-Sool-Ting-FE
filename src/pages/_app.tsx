@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ReactNode } from 'react';
 import '@/styles/calendar.css';
+import '@/styles/scrollbar-hidden.css';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactNode) => ReactNode;
