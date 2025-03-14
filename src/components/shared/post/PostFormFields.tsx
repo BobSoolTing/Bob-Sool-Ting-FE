@@ -31,11 +31,11 @@ const PostFormFields: React.FC<PostFormFieldsProps> = ({ onFieldClick }) => {
 
       <div onClick={() => onFieldClick('category')} className='flex items-center h-5 cursor-pointer'>
         <BobSoolTingIcon className='mr-2 w-4 h-4' />
-        {formData.category === 'BOB' ? (
+        {formData.category === 'FOOD' ? (
           <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>밥약</div>
-        ) : formData.category === 'SOOL' ? (
+        ) : formData.category === 'DRINK' ? (
           <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>술약</div>
-        ) : formData.category === 'TING' ? (
+        ) : formData.category === 'MEETING' ? (
           <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>과팅</div>
         ) : (
           <div className='text-lg font-medium text-[#999] border-0 focus:outline-none'>카테고리를 선택해 주세요</div>

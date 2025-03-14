@@ -12,14 +12,15 @@ interface PostFormState {
     location: string;
     date: string;
     max_participants: number;
-    category: 'BOB' | 'SOOL' | 'TING' | '카테고리를 선택해 주세요';
-    recruitment_status: 'RECRUITING';
+    category: 'FOOD' | 'DRINK' | 'MEETING' | '카테고리를 선택해 주세요';
   };
   openBottomSheet: (type: BottomSheetType) => void;
   closeBottomSheet: () => void;
   updateFormData: (field: string, value: string) => void;
   resetFormData: () => void; // 리셋 메소드 추가
 }
+
+type valueType = string | number;
 
 export const usePostFormStore = create<PostFormState>((set) => ({
   isComplete: false,
@@ -31,7 +32,6 @@ export const usePostFormStore = create<PostFormState>((set) => ({
     date: '약속 날짜를 선택해 주세요',
     max_participants: 999,
     category: '카테고리를 선택해 주세요',
-    recruitment_status: 'RECRUITING',
   },
 
   // BottomSheet 열기 함수
@@ -41,7 +41,7 @@ export const usePostFormStore = create<PostFormState>((set) => ({
   closeBottomSheet: () => set({ activeSheet: null }),
 
   // 폼 데이터 업데이트 함수
-  updateFormData: (field: string, value: string) =>
+  updateFormData: (field: string, value: valueType) =>
     set((state) => {
       const newFormData = {
         ...state.formData,
@@ -76,7 +76,6 @@ export const usePostFormStore = create<PostFormState>((set) => ({
         date: '약속 날짜를 선택해 주세요',
         max_participants: 999,
         category: '카테고리를 선택해 주세요',
-        recruitment_status: 'RECRUITING',
       },
     }),
 }));

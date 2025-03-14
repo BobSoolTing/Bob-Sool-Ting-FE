@@ -17,7 +17,7 @@ export default function BottomSheetCategorySelect({ className, isOpen, onClose }
       <div className='flex flex-row gap-4'>
         <div
           onClick={() => {
-            updateFormData('category', 'BOB');
+            updateFormData('category', 'FOOD');
             onClose();
           }}
           className='w-[100px] h-[50px] flex items-center justify-center rounded-md bg-[#2f7dff] mx-auto cursor-pointer hover:bg-[#2768FF]'
@@ -26,7 +26,7 @@ export default function BottomSheetCategorySelect({ className, isOpen, onClose }
         </div>
         <div
           onClick={() => {
-            updateFormData('category', 'SOOL');
+            updateFormData('category', 'DRINK');
             onClose();
           }}
           className='w-[100px] h-[50px] flex items-center justify-center rounded-md bg-[#2f7dff] mx-auto cursor-pointer hover:bg-[#2768FF]'
@@ -35,7 +35,7 @@ export default function BottomSheetCategorySelect({ className, isOpen, onClose }
         </div>
         <div
           onClick={() => {
-            updateFormData('category', 'TING');
+            updateFormData('category', 'MEETING');
             onClose();
           }}
           className='w-[100px] h-[50px] flex items-center justify-center rounded-md bg-[#2f7dff] mx-auto cursor-pointer hover:bg-[#2768FF]'
