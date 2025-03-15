@@ -293,7 +293,7 @@ export const CommentIcon = ({ className }: { className?: string }) => {
 };
 
 // 조회수 아이콘
-export const ViewIcon = ({ className }: { className?: string }) => {
+export const ViewIcon = () => {
   return (
     <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <g clipPath='url(#clip0_158_1670)'>
@@ -524,7 +524,7 @@ export const ReportIcon = ({ className }: { className?: string }) => {
   );
 };
 
-export const CameraIcon = ({ className }: { className?: string }) => {
+export const CameraIcon = () => {
   return (
     <svg
       width={24}

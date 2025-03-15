@@ -3,6 +3,7 @@ import ProfileItem from '../ProfileItem';
 import { CopyIcon } from '@/assets/icons/SvgIcon';
 import BottomSheet from '@/components/shared/post/BottomSheet';
 import Button from '../Button';
+import Image from 'next/image';
 
 interface Profile {
   id: number;
@@ -125,7 +126,7 @@ export default function MatchedContent() {
                     className='flex flex-col items-center cursor-pointer'
                     onClick={() => handleProfileClick(profile)} // 클릭 시 상세정보 전환
                   >
-                    <img src={profile.imageUrl} alt='Profile' className='w-[70px] h-[70px] rounded-full' />
+                    <Image src={profile.imageUrl} alt='Profile' className='w-[70px] h-[70px] rounded-full' />
                     <span className='text-base font-bold mt-[6px]'>{profile.name}</span>
                   </div>
                 ))}
