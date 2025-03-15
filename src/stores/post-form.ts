@@ -16,7 +16,7 @@ interface PostFormState {
   };
   openBottomSheet: (type: BottomSheetType) => void;
   closeBottomSheet: () => void;
-  updateFormData: (field: string, value: string) => void;
+  updateFormData: (field: string, value: string | number) => void;
   resetFormData: () => void; // 리셋 메소드 추가
 }
 
