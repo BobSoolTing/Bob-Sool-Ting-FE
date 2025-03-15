@@ -4,7 +4,7 @@ import { ClearIcon } from '@/assets/icons/SvgIcon';
 import { validateUniversity, validateDepartment, validateStudentNumber, validateNickname, validateBirth } from '@/utils/validations';
 import { formatBirth, formatPhoneNumber } from '@/utils/formatters';
 
-export default function RegisterInput({ label, placeholder, type = 'text', storeKey, width = 'w-full' }: RegisterInputProps) {
+export default function RegisterInput({ label, placeholder, type = 'text', storeKey, width = 'w-full' }: any) {
   const store = useRegisterStore();
   const [error, setError] = useState('');
 

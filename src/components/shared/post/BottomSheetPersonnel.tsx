@@ -12,7 +12,7 @@ interface BottomSheetPersonnelProps {
 }
 
 export default function BottomSheetPersonnel({ className, isOpen, onClose }: BottomSheetPersonnelProps) {
-  const [personnel, setPersonnel] = useState(+1);
+  const [personnel, setPersonnel] = useState(1);
   const { updateFormData } = usePostFormStore();
 
   const onClickButton = () => {

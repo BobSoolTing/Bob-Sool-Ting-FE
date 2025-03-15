@@ -46,7 +46,7 @@ export default function BottomSheetDate({ className, isOpen, onClose, height }: 
   }, []);
 
   // 일자의 "1일" -> "1"로 변경하는 함수
-  const formatDay = useCallback((_locale: string, date: Date) => {
+  const formatDay = useCallback((locale: string | undefined, date: Date) => {
     return date.getDate().toString();
   }, []);
 
