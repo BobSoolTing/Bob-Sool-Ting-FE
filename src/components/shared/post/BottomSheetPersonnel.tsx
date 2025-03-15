@@ -13,11 +13,10 @@ interface BottomSheetPersonnelProps {
 
 export default function BottomSheetPersonnel({ className, isOpen, onClose }: BottomSheetPersonnelProps) {
   const [personnel, setPersonnel] = useState(1);
-  const [isComplete, setIsComplete] = useState();
-  const { formData, updateFormData } = usePostFormStore();
+  const { updateFormData } = usePostFormStore();
 
   const onClickButton = () => {
-    updateFormData('personnel', `${personnel}인`);
+    updateFormData('max_participants', personnel);
     onClose();
   };
   return (

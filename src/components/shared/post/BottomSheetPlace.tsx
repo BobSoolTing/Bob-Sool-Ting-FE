@@ -14,10 +14,10 @@ export default function BottomSheetPlace({ isOpen, onClose }: BottomSheetPlacePr
   const { formData, updateFormData } = usePostFormStore();
   const [isComplete, setIsComplete] = useState(false);
   useEffect(() => {
-    if (formData.place) {
+    if (formData.location) {
       setIsComplete(true);
     }
-  }, [formData.place]);
+  }, [formData.location]);
   return (
     <BottomSheet height={'300px'} isOpen={isOpen} onClose={onClose}>
       <div className='flex flex-col items-center w-full h-full'>
@@ -27,7 +27,7 @@ export default function BottomSheetPlace({ isOpen, onClose }: BottomSheetPlacePr
           type='text'
           placeholder='예 : 강남역'
           onChange={(e) => {
-            updateFormData('place', e.target.value);
+            updateFormData('location', e.target.value);
           }}
         />
       </div>

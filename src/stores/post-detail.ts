@@ -130,10 +130,15 @@ export interface IPostDetail {
 
 // 댓글을 위한 인터페이스 정의
 interface Comment {
-  id: string; // 댓글 고유 ID
-  userId: string; // 댓글 작성자 ID
-  content: string; // 댓글 내용
-  createdAt: string; // 댓글 작성 시간
+  nickname: string;
+  rating: number;
+  gender: string;
+  department: string;
+  studentNumber: string;
+  birth: string;
+  comment: string;
+  child?: Comment[];
+  createdAt: string;
 }
 
 // 스토어 인터페이스 정의

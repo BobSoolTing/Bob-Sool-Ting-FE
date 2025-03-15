@@ -3,7 +3,7 @@ import { useRegisterStore } from '@/stores/register-form';
 import { ClearIcon } from '@/assets/icons/SvgIcon';
 import MobileCarrierBottomSheet from './MobileCarrierBottomSheet';
 
-export default function RegisterMobileCarrierInput({ label, placeholder, storeKey }) {
+export default function RegisterMobileCarrierInput({ label, placeholder }) {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   const store = useRegisterStore();

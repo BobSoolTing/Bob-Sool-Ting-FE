@@ -9,16 +9,18 @@ interface PostFormState {
   formData: {
     title: string;
     content: string;
-    place: string;
+    location: string;
     date: string;
-    personnel: string;
-    category: string;
+    max_participants: number;
+    category: 'FOOD' | 'DRINK' | 'MEETING' | '카테고리를 선택해 주세요';
   };
   openBottomSheet: (type: BottomSheetType) => void;
   closeBottomSheet: () => void;
-  updateFormData: (field: string, value: string) => void;
+  updateFormData: (field: string, value: string | number) => void;
   resetFormData: () => void; // 리셋 메소드 추가
 }
+
+type valueType = string | number;
 
 export const usePostFormStore = create<PostFormState>((set) => ({
   isComplete: false,
@@ -26,9 +28,9 @@ export const usePostFormStore = create<PostFormState>((set) => ({
   formData: {
     title: '',
     content: '',
-    place: '만남 장소를 입력해 주세요',
+    location: '만남 장소를 입력해 주세요',
     date: '약속 날짜를 선택해 주세요',
-    personnel: '인원 수를 선택해 주세요',
+    max_participants: 999,
     category: '카테고리를 선택해 주세요',
   },
 
@@ -39,7 +41,7 @@ export const usePostFormStore = create<PostFormState>((set) => ({
   closeBottomSheet: () => set({ activeSheet: null }),
 
   // 폼 데이터 업데이트 함수
-  updateFormData: (field: string, value: string) =>
+  updateFormData: (field: string, value: valueType) =>
     set((state) => {
       const newFormData = {
         ...state.formData,
@@ -47,13 +49,13 @@ export const usePostFormStore = create<PostFormState>((set) => ({
       };
 
       // 모든 필수 필드가 채워졌는지 확인 (category 포함)
-      const { title, content, place, date, personnel, category } = newFormData;
+      const { title, content, location, date, max_participants, category } = newFormData;
       const isComplete = Boolean(
         title &&
           content &&
-          place !== '만남 장소를 입력해 주세요' &&
+          location !== '만남 장소를 입력해 주세요' &&
           date !== '약속 날짜를 선택해 주세요' &&
-          personnel !== '인원 수를 선택해 주세요' &&
+          max_participants !== 999 &&
           category !== '카테고리를 선택해 주세요'
       );
 
@@ -70,9 +72,9 @@ export const usePostFormStore = create<PostFormState>((set) => ({
       formData: {
         title: '',
         content: '',
-        place: '만남 장소를 입력해 주세요',
+        location: '만남 장소를 입력해 주세요',
         date: '약속 날짜를 선택해 주세요',
-        personnel: '인원 수를 선택해 주세요',
+        max_participants: 999,
         category: '카테고리를 선택해 주세요',
       },
     }),
