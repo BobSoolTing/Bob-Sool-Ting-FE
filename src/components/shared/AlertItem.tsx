@@ -12,7 +12,7 @@ interface AlertItemProps {
   onClose: () => void;
 }
 
-export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete, onClose }: AlertItemProps) {
+export default function AlertItem({ alert, isSlide, onDeleteOpen, onDelete }: AlertItemProps) {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   if (!alert) return null; // alert가 undefined일 경우 아무 것도 렌더링하지 않음

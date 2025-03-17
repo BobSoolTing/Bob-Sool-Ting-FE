@@ -123,7 +123,7 @@ export function HeartIcon({ className, color = '#FF2A2A' }: { className?: string
 }
 
 // 게시글 작성 아이콘
-export const WritingIcon = ({ className }: { className?: string }) => {
+export const WritingIcon = () => {
   return (
     <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <path d='M14.1027 7.73371L1.37481 7.73371M7.73877 1.13405L7.73877 14.3334' stroke='white' strokeWidth={2} stroke-linecap='round' />
@@ -132,7 +132,7 @@ export const WritingIcon = ({ className }: { className?: string }) => {
 };
 
 // 검색결과 아이템 - 시계 아이콘
-export const ClockIcon = ({ className }: { className?: string }) => {
+export const ClockIcon = () => {
   return (
     <svg
       width={16}
@@ -155,7 +155,7 @@ export const ClockIcon = ({ className }: { className?: string }) => {
 };
 
 // 검색 바 검색 아이콘
-export const SearchBarIcon = ({ className }: { className?: string }) => {
+export const SearchBarIcon = () => {
   return (
     <svg width={24} height={24} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <path
@@ -168,7 +168,7 @@ export const SearchBarIcon = ({ className }: { className?: string }) => {
 };
 
 // 기본 프로필 아이콘
-export const ProfileIcon = ({ className }: { className?: string }) => {
+export const ProfileIcon = () => {
   return (
     <svg
       width={80}
@@ -189,7 +189,7 @@ export const ProfileIcon = ({ className }: { className?: string }) => {
 };
 
 // 검색 바 클리어 아이콘
-export const ClearIcon = ({ className }: { className?: string }) => {
+export const ClearIcon = () => {
   return (
     <svg width={24} height={24} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <path
@@ -201,7 +201,7 @@ export const ClearIcon = ({ className }: { className?: string }) => {
 };
 
 // 쓰레기통 아이콘 (알림 삭제)
-export const DeleteIcon = ({ className }: { className?: string }) => {
+export const DeleteIcon = () => {
   return (
     <svg width={32} height={32} viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <g clipPath='url(#clip0_212_919)'>
@@ -224,7 +224,7 @@ export const DeleteIcon = ({ className }: { className?: string }) => {
 };
 
 // 알림 삭제 버튼 아이콘
-export const DeleteButtonIcon = ({ className }: { className?: string }) => {
+export const DeleteButtonIcon = () => {
   return (
     <svg width={24} height={24} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <g clipPath='url(#clip0_160_1344)'>
@@ -238,7 +238,7 @@ export const DeleteButtonIcon = ({ className }: { className?: string }) => {
 };
 
 // 알림 아이콘
-export const AlertIcon = ({ className }: { className?: string }) => {
+export const AlertIcon = () => {
   return (
     <svg width={24} height={24} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <path
@@ -293,7 +293,7 @@ export const CommentIcon = ({ className }: { className?: string }) => {
 };
 
 // 조회수 아이콘
-export const ViewIcon = ({ className }: { className?: string }) => {
+export const ViewIcon = () => {
   return (
     <svg width={16} height={16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <g clipPath='url(#clip0_158_1670)'>
@@ -311,7 +311,7 @@ export const ViewIcon = ({ className }: { className?: string }) => {
 };
 
 // 인원수 추가 아이콘
-export const AddIcon = ({ className }: { className?: string }) => {
+export const AddIcon = () => {
   return (
     <svg width={48} height={48} viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-12 h-12' preserveAspectRatio='none'>
       <circle cx={24} cy={24} r={24} fill='#EAF0FF' />
@@ -524,7 +524,7 @@ export const ReportIcon = ({ className }: { className?: string }) => {
   );
 };
 
-export const CameraIcon = ({ className }: { className?: string }) => {
+export const CameraIcon = () => {
   return (
     <svg
       width={24}
@@ -546,7 +546,7 @@ export const CameraIcon = ({ className }: { className?: string }) => {
 };
 
 // 매칭 완료 아이콘
-export const MatchedIcon = ({ className }: { className?: string }) => {
+export const MatchedIcon = () => {
   return (
     <svg width={84} height={84} viewBox='0 0 84 84' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'>
       <path

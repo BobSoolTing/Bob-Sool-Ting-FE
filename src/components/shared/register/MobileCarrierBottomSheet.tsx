@@ -17,7 +17,7 @@ export default function MobileCarrierBottomSheet({ isOpen, onClose }: MobileCarr
     { code: 'LGUP', name: 'LGU+' },
   ];
 
-  const handleSelectCarrier = (carrierCode) => {
+  const handleSelectCarrier = (carrierCode: any) => {
     setMobileCarrier(carrierCode);
     onClose();
   };
